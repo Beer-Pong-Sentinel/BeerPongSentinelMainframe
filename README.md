@@ -26,6 +26,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 | Stepper Motor   | CPM-SDSK-3421S-RLN  | |
 | SDK Motor   | CPM-SCSK-3411S-ELNB  | |
 
+### Solenoid Control Circuit
 ## Mechanical 
 ### Components
 ### CAD Models
