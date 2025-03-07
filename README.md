@@ -7,7 +7,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 ## Electrical
 ### Layout
 ### Components
-|Designation| Type | Name | Amount | Datasheet |
+|Designation| Description | Part Number | Amount | Datasheet |
 |----------|----------|----------|----------|----------|
 |MAZ| Stepper Motor   | CPM-SDSK-3421S-RLN  | 1   |[Teknic](https://teknic.com/model-info/CPM-SDSK-3421S-RLN/?model_voltage=48VDC)|
 |MAL|SDK Motor   | CPM-SCSK-3411S-ELNB  | 1   |[Teknic](https://teknic.com/model-info/CPM-SCSK-3411S-ELNB/?model_voltage=75)   |
@@ -21,10 +21,11 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 |N/A| BJT    | 2N3904   | 2   | [Onsemi](https://www.onsemi.com/download/data-sheet/pdf/2n3903-d.pdf)   |
 
 ### Connections
-| Designation | Name | Amount |
-|----------|----------|----------|
-| Stepper Motor   | CPM-SDSK-3421S-RLN  | |
-| SDK Motor   | CPM-SCSK-3411S-ELNB  | |
+| Designation | Description | Part Number  | Amount | Link|
+|----------|----------|----------|----------|----------|
+| MPC | Motors Power Cable | CPM-CABLE-PWR-MS120  | 2 | [Teknic](https://teknic.com/cpm-cable-pwr-ms120/) |
+| MDC | Motors Data Cable | CPM-CABLE-CTRL-MU120  | 2 | [Teknic](https://teknic.com/CPM-CABLE-CTRL-MU120/) |
+
 
 ### Solenoid Control Circuit
 ## Mechanical 
