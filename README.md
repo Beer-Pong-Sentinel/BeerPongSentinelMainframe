@@ -18,6 +18,8 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 | MOSFET    | IRF540   | 1   | [Vishay](https://www.vishay.com/docs/91021/irf540.pdf)   |
 | BJT    | 2N3904   | 2   | [Onsemi](https://www.onsemi.com/download/data-sheet/pdf/2n3903-d.pdf)   |
 
+### Connections
+
 ## Mechanical 
 ### Components
 ### CAD Models
