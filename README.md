@@ -35,6 +35,10 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ## Firmware
 
+### Firmware's Parameters
+
 ## Camera system
+
+### Camera's Parameters
 
 ## Software
