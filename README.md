@@ -9,7 +9,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 ### Components
 | Type | Name | Amount | Datasheet |
 |----------|----------|----------|----------|
-| Stepper Motor   | CPM-SDSK-3421S-RLN  | 1   |<a href="https://teknic.com/model-info/CPM-SDSK-3421S-RLN/?model_voltage=48VDC" target="_blank">Teknic</a>|
+| Stepper Motor   | CPM-SDSK-3421S-RLN  | 1   |[Teknic](https://teknic.com/model-info/CPM-SDSK-3421S-RLN/?model_voltage=48VDC)|
 | SDK Motor   | CPM-SCSK-3411S-ELNB  | 1   |[Teknic](https://teknic.com/model-info/CPM-SCSK-3411S-ELNB/?model_voltage=75)   |
 | Motor Control Hub   | SC4-HUB  | 1   |[Teknic](https://teknic.com/sc4-hub/)   |
 | 24V Solenoid 42N   | 10MM JF-1253B   | 1   |[ Lee's Electronics](https://leeselectronic.com/en/product/4408-12v-solenoid-42n-10mm-jf-1253b.html)   |
