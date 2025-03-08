@@ -28,6 +28,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 |PSC| Power Supply Cable| IPC35-CABLE110 | 1 |[Teknic](https://teknic.com/ipc35-cable110/)|
 |C1| USB-A to USB-B|  | 1 ||
 |C2| Micro USB to USB-B/C|  | 2 ||
+|C3| 2-pin Molex to Ring Connector | |2||
 
 
 ### Solenoid Control Circuit
