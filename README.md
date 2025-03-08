@@ -29,6 +29,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 |C1| USB-A to USB-B|  | 1 ||
 |C2| Micro USB to USB-B/C|  | 2 ||
 |C3| 2-pin Molex to Ring Connector | |2||
+|SJ| Jumber Wire| 2 | | | 
 
 
 ### Solenoid Control Circuit
