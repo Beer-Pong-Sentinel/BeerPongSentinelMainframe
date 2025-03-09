@@ -26,7 +26,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 | MPC | Motors Power Cable | CPM-CABLE-PWR-MS120  | 2 | [Teknic](https://teknic.com/cpm-cable-pwr-ms120/) |
 | MDC | Motors Data Cable | CPM-CABLE-CTRL-MU120  | 2 | [Teknic](https://teknic.com/CPM-CABLE-CTRL-MU120/) |
 |PSC| Power Supply Cable| IPC35-CABLE110 | 1 |[Teknic](https://teknic.com/ipc35-cable110/)|
-|C1| USB-A to USB-B|  | 1 ||
+|C1| USB-A to USB-B|  | 2 ||
 |C2| Micro USB to USB-B/C|  | 2 ||
 |C3| 2-pin Molex to Ring Connector | |2||
 |SJ| Jumber Wire|  | 2| | 
