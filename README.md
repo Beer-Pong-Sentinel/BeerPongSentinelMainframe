@@ -38,10 +38,8 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 ## Mechanical 
 ### Components
 ### CAD Models
-
-||||
-|----------|----------|----------|
 | ![Launcher Model](./pictures/cad_launcher.png) | ![Azimuth Mount](./pictures/cad_azi.png)| ![Altitude Mount](./pictures/cad_alti.png)|
+|----------|----------|----------|
 ### Assembly 
 
 ## Firmware
