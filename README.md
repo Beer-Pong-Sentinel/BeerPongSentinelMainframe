@@ -48,6 +48,14 @@ Our firmware runs on an Arduino Uno. The full firmware project can be found unde
 ![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
 ### Firmware's Parameters
+**_Solenoid Pulse Width:_**
+
+**_Step Signal Pulse Width:_**
+
+**_Azimuth Motor Settlement Range:_**
+
+**_Azimuth Motor Settlement Delay:_**
+
 
 ## Camera system
 
