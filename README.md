@@ -48,7 +48,7 @@ Our firmware runs on an Arduino Uno. The full firmware project can be found unde
 ![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
 ### Firmware's Parameters
-**_Solenoid Pulse Width:_**
+<u>**_Solenoid Pulse Width:_**</u>
 
 **_Step Signal Pulse Width:_**
 
