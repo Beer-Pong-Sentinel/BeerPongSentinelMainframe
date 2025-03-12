@@ -37,7 +37,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 ### Solenoid Control Circuit
 _Note:_ The physical circuit in the current setup of the project is not the printed PCB, but a breadboard version without the option for a manual control and a 5V voltage regulator that steps down the 24V for the solenoid.
 
-The full design for the solenoid control PCB can be found under electric/sol_ctrl_pcb
+The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_pcb
 ![Proposed Solenoid Circuit](./pictures/solenoid_circuit.png "Proposed Solenoid Circuit")
 ## Mechanical 
 ### Components
@@ -53,13 +53,27 @@ Our firmware runs on an Arduino Uno.
 ![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
 ### Firmware's Parameters
-<u>**_Solenoid Pulse Width:_**</u>
+**_Solenoid Pulse Width:_**
+Location: firmware
+Variable: TRIGGERING_DELAY
+Scale: Miliseconds
+Current Settings: 75
+Considerations:
 
 **_Step Signal Pulse Width:_**
+Location: firmware
+Variable: AZI_DELAY
+Scale: Microseconds
+Current Settings: 100
+Considerations:
+
+_Note:_ Currently this sets both the pulse width and the frequency of pulses as the high time and low time are symmetric. This can be changed.
 
 **_Azimuth Motor Settlement Range:_**
+Location: ClearPath MSP
 
 **_Azimuth Motor Settlement Delay:_**
+Location: ClearPath MSP
 
 
 ## Camera system
