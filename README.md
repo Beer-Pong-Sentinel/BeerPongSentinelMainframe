@@ -48,24 +48,24 @@ The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_p
 
 [![Full Assembly](./pictures/cad_full_ass.png)](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/76fc739196417cc4943c6696?renderMode=0&uiState=67cce26e1ec0ed3d7ef3f115)
 ## Firmware
-The full firmware project can be found under the firmware folder.
+The full firmware project can be found under the firmware folder.\
 Our firmware runs on an Arduino Uno. 
 ![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
 ### Firmware's Parameters
 **_Solenoid Pulse Width:_**
-Location: firmware
-Variable: TRIGGERING_DELAY
-Scale: Miliseconds
-Current Settings: 75
-Considerations:
+Location: firmware\
+Variable: TRIGGERING_DELAY\
+Scale: Miliseconds\
+Current Settings: 75\
+Considerations:\
 
 **_Step Signal Pulse Width:_**
-Location: firmware
-Variable: AZI_DELAY
-Scale: Microseconds
-Current Settings: 100
-Considerations:
+Location: firmware\
+Variable: AZI_DELAY\
+Scale: Microseconds\
+Current Settings: 100\
+Considerations:\
 
 _Note:_ Currently this sets both the pulse width and the frequency of pulses as the high time and low time are symmetric. This can be changed.
 
