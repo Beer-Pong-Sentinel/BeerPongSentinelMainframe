@@ -58,14 +58,20 @@ Location: firmware\
 Variable: TRIGGERING_DELAY\
 Scale: Miliseconds\
 Current Settings: 75\
-Considerations: Time needs to be enough to allow for the solenoid to provide optimal force to release the valve that open the magazine and releases air. Cannot be to long as it will cause the valve to be open for longer and release too much air. 
+Considerations: 
+- Time needs to be enough to allow for the solenoid to provide optimal force to release the valve that open the magazine and releases air. 
+- Time cannot be to long as it will cause the valve to be open for longer and release too much air. 
 
 **_Step Signal Pulse Width:_**
 Location: firmware\
 Variable: AZI_DELAY\
 Scale: Microseconds\
 Current Settings: 100\
-Considerations:
+Considerations: 
+- Minimum specification of motor control must be met
+- Rise/fall time affect on the pulse
+- Motor minimum control voltage is 5V
+- Affect on motion profile; how steps in certain frequencies translate to different velocities
 
 _Note:_ Currently this sets both the pulse width and the frequency of pulses as the high time and low time are symmetric. This can be changed.
 
