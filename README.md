@@ -44,6 +44,8 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 [![Full Assembly](./pictures/cad_full_ass.png)](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/76fc739196417cc4943c6696?renderMode=0&uiState=67cce26e1ec0ed3d7ef3f115)
 ## Firmware
+Our firmware runs on an Arduino Uno. The full firmware project can be found under the Firmware folder.
+![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
 ### Firmware's Parameters
 
