@@ -53,6 +53,8 @@ Getting the moment of interia for the luncher plays a key role in the design and
 
 The below figure shows our CAD model of the luncher with it's mechanical parameters. The marker/arrows indicate the mounting location for the luncher.
 
+The luncher's model was built by weighting its various components and recreating the rough or exact shapes of its components. The result parameter should be considered as a lower bound. We recommend using a factor of safety of 1.5 at least in any calculations that include this parameters.
+
 [Luncher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
 
 ![Luncher and Moment of Interia](./pictures/moe.png "Luncher and Moment of Interia")
