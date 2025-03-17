@@ -47,6 +47,15 @@ The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_p
 ### Assembly 
 
 [![Full Assembly](./pictures/cad_full_ass.png)](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/76fc739196417cc4943c6696?renderMode=0&uiState=67cce26e1ec0ed3d7ef3f115)
+
+### Launcher's Moment of Interia
+Getting the moment of interia for the luncher plays a key role in the design and motor selection.
+
+The below figure shows our CAD model of the luncher with it's mechanical parameters. The marker/arrows indicate the mounting location for the luncher.
+
+[Luncher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
+
+![Luncher and Moment of Interia](./pictures/moe.png "Luncher and Moment of Interia")
 ## Firmware
 The full firmware project can be found under the firmware folder.\
 Our firmware runs on an Arduino Uno. 
