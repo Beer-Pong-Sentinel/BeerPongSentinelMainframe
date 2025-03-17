@@ -6,11 +6,12 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ## Electrical
 ### Layout
-![Electrical Layout](./pictures/elec_layout.png "Electrical Components Layout")
+![Electrical Layout](./pictures/elec_layout_.png "Electrical Components Layout")
 
 ### Components
 |Designation| Description | Part Number | Amount | Datasheet |
 |----------|----------|----------|----------|----------|
+|CM| Blackfly S Camera   | BFS-U3-04S2C-C  | 2   |[Teledyne](https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)|
 |MAZ| Stepper Motor   | CPM-SDSK-3421S-RLN  | 1   |[Teknic](https://teknic.com/model-info/CPM-SDSK-3421S-RLN/?model_voltage=48VDC)|
 |MAL|SDK Motor   | CPM-SCSK-3411S-ELNB  | 1   |[Teknic](https://teknic.com/model-info/CPM-SCSK-3411S-ELNB/?model_voltage=75)   |
 |PS1| Motor Power Supply | IPC-5 | 1 | [Teknic](https://teknic.com/products/servo-motor-dc-power-supply/)|
@@ -28,9 +29,11 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 | MPC | Motors Power Cable | CPM-CABLE-PWR-MS120  | 2 | [Teknic](https://teknic.com/cpm-cable-pwr-ms120/) |
 | MDC | Motors Data Cable | CPM-CABLE-CTRL-MU120  | 2 | [Teknic](https://teknic.com/CPM-CABLE-CTRL-MU120/) |
 |PSC| Power Supply Cable| IPC35-CABLE110 | 1 |[Teknic](https://teknic.com/ipc35-cable110/)|
+|HR10| Camera GPIO Cable| HR10A-7P-6S | 1 |[Teledyne](https://www.teledynevisionsolutions.com/products/hirose-hr10-6-pin-circular-connector/)|
 |C1| USB-A to USB-B|  | 2 ||
 |C2| Micro USB to USB-B/C|  | 2 ||
 |C3| 2-pin Molex to Ring Connector | |2||
+|C4| USB3 to Micro-B | |2||
 |SJ| Jumber Wire|  | 2| | 
 
 
