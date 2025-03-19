@@ -9,7 +9,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ## Electrical
 ### Layout
-![Electrical Layout](./pictures/elec_layout_2.png "Electrical Components Layout")
+![Electrical Layout](./pictures/el.png "Electrical Components Layout")
 
 ### Components
 |Designation| Description | Part Number | Amount | Datasheet |
