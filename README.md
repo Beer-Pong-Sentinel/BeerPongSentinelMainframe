@@ -5,7 +5,18 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ### Error, Latency, Jitter, and Uncertainty
 
-![Error Diagram](./pictures/ed_.png "Error Diagram")
+![Error Diagram](./pictures/ed1_.png "Error Diagram")
+
+Our estimates for all the erros are provided in the table below.
+|Source| Symbol | Quantity | Units |Notes|
+|----------|----------|----------|----------|----------|
+|Cameras|Ec|||||
+|Motors - Azimuth|Eθ,azi||||
+|Motors - Altitude|Eθ,alti||||
+|Pneumatic Mechanism| Eθ,s|0.00485| Radians | Maximum measured spread|
+|Electromechanical Delay| Et||||
+
+
 
 ## Electrical
 ### Layout
