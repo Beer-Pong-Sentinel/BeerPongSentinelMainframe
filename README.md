@@ -116,6 +116,12 @@ Location: ClearPath MSP
 **_Azimuth Motor Settlement Delay:_**
 Location: ClearPath MSP
 
+**_Altitude Motor Settlement Range:_**
+Location: ClearView 
+
+**_Altitude Motor Settlement Delay:_**
+Location: ClearView 
+
 
 ## Camera system
 
