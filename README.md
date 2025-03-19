@@ -5,17 +5,21 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ### Error, Latency, Jitter, and Uncertainty
 
-![Error Diagram](./pictures/ed1_.png "Error Diagram")
+![Error Diagram](./pictures/ed1.png "Error Diagram")
 
 Our estimates for all the erros are provided in the table below.
 |Source| Symbol | Quantity | Units |Notes|
 |----------|----------|----------|----------|----------|
 |Cameras|Ec|||||
-|Motors - Azimuth|Eθ,azi||||
-|Motors - Altitude|Eθ,alti||||
+|Motors - Azimuth|Eθ,azi|0.450|Degrees| Manufacturer data|
+|Motors - Altitude|Eθ,alti|0.057|Degrees|Manufacturer data|
 |Pneumatic Mechanism| Eθ,s|0.00485| Radians | Maximum measured spread|
-|Electromechanical Delay| Et||||
+|Electromechanical Jitter| Et|1.2|milliseconds| Maximum measured jitter| 
 
+_Why have different units?_\
+We would like to get the most accurate estimation for the maximum error in our system. For that reason we comply with the manufacturer choice of unit, and covert the units only when plugging into the final error estimation. 
+
+_Note_: We are assuming the pallet travels at around the speed the manufacturer claims *131meters per seconds*.
 
 
 ## Electrical
