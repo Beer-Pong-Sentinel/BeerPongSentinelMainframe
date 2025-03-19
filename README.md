@@ -5,7 +5,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ### Error, Latency, Jitter, and Uncertainty
 
-![Error Diagram](./pictures/ed.png "Error Diagram")
+![Error Diagram](./pictures/ed_.png "Error Diagram")
 
 ## Electrical
 ### Layout
