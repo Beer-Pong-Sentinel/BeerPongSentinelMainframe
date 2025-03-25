@@ -13,7 +13,8 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 Our estimates for all the erros are provided in the table below.
 |Source| Symbol | Quantity | Units |Notes|
 |----------|----------|----------|----------|----------|
-|Cameras|Ec|||||
+|Integration|Ei|N/A||Need to collect data|
+|Cameras|Ec|0.3-0.8|Pixels|Result of camera's triangulation|
 |Motors - Azimuth|Eθ,azi|0.450|Degrees| Manufacturer data|
 |Motors - Altitude|Eθ,alti|0.057|Degrees|Manufacturer data|
 |Pneumatic Mechanism| Eθ,s|0.00485| Radians | Maximum measured spread|
