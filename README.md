@@ -3,9 +3,12 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ## Background
 
+![High Level Overview](./pictures/hlo.gif "High Level Overview")
+
+
 ### Error, Latency, Jitter, and Uncertainty
 
-![Error Diagram](./pictures/ed1.png "Error Diagram")
+![Error Diagram](./pictures/ec.png "Error Diagram")
 
 Our estimates for all the erros are provided in the table below.
 |Source| Symbol | Quantity | Units |Notes|
@@ -62,9 +65,10 @@ The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_p
 ![Proposed Solenoid Circuit](./pictures/solenoid_circuit.png "Proposed Solenoid Circuit")
 ## Mechanical 
 ### Launcher Modifications
-![Launcher Modifications](./pictures/re.png "Launcher Modifications")
+![Launcher Modifications](./pictures/lm.png "Launcher Modifications")
 
 ### Components
+_Click to open OnShape CAD model_
 ### Launcher Mount and Maneuvering
 | [![Launcher Mount](./pictures/cad_launcher_mount.png "Launcher Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/a90c483078f0a216147ba77b?renderMode=0&uiState=67cce1751ec0ed3d7ef3efa9) | [![Azimuth Mount](./pictures/cad_azi.png "Azimuth Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/af73ce29d204dcf42df93766)| [![Altitude Mount](./pictures/cad_alti.png "Altitude Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/c06067e56aa459f53e365584?renderMode=0&uiState=67cce03d75f3db0bee079528)|
 |----------|----------|----------|
