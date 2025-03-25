@@ -2,9 +2,19 @@
 This page contains a detailed description of the Beer Pong Sentinel capstone project for [ENPH 479](https://projectlab.engphys.ubc.ca/enph-459-479/) course at UBC.
 
 ## Background
+The inspiration for this project came from an innocent university game - beer pong.
+We thought - “what if, we can building a robot that can intercept all of our rival’s shots!”
 
+This inspired to construct a small scale “aerial defence” setup for us to explore similar setting to beer pong.
+Our goal is to deflect a target reaching a zone at the edge of a table using an interception system.
+
+### General Interception Process
 ![High Level Overview](./pictures/hlo.gif "High Level Overview")
 
+The small animation shows the different high level stages our system has to take to intercept a ball.
+
+First you see the general setup of our system, and it's different comppnents.
+Than we see the ball is in the air -> our camera detects a first image of it -> more pictures are collected -> a predicted path for the ball is produced -> launcher moves to a predicted interception position -> launcher is triggered to intecept a ball.
 
 ### Error, Latency, Jitter, and Uncertainty
 
