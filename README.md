@@ -96,7 +96,7 @@ The launcher's model was built by weighting its various components and recreatin
 
 [launcher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
 
-![launcher and Moment of Interia](./pictures/moe.png "launcher and Moment of Interia")
+![launcher and Moment of Interia](./pictures/moe1.png "launcher and Moment of Interia")
 ## Firmware
 The full firmware project can be found under the firmware folder.\
 Our firmware runs on an Arduino Uno. 
