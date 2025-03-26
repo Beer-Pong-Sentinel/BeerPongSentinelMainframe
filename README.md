@@ -3,7 +3,7 @@ This page contains a detailed description of the Beer Pong Sentinel capstone pro
 
 ## Background
 The inspiration for this project came from an innocent university game - beer pong.
-We thought - “what if, we can building a robot that can intercept all of our rival’s shots!”
+We thought - “what if, we can build a robot that can intercept all of our rival’s shots!”
 
 This inspired to construct a small scale “aerial defence” setup for us to explore similar setting to beer pong.
 Our goal is to deflect a target reaching a zone at the edge of a table using an interception system.
