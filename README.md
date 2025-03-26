@@ -142,4 +142,27 @@ Location: ClearView
 
 ### Camera's Parameters
 
+### Intrinsic/Extrinsic Callibration 
+![Chessboard Setup](./pictures/eic.png "Chessboard Setup")
+
+![Camera's Distortion](./pictures/cd.png "Camera's Distortion")
+We use stereo calibration to to correct for lens distortions and determine the precise relative placement of two cameras. We use a printed chessboard pattern of known dimensions, by taking images at various positions and orientations. By analyzing these images, the calibration algorithm uses the known geometry of the chessboard to first estimate and correct each camera’s intrinsic parameters—thus “undistorting” the images. It then compares corresponding points in both camera views to determine the cameras’ relative positions and orientations. These calibration results, which include both the intrinsic corrections and the extrinsic parameters describing how the cameras are arranged, can be combined into a projection matrix that enables the reconstruction of a 3D point in world space from the two camera images.
+
+### Cameras-Launcher Callibration
+![Cameras Launcher Callibration](./pictures/clc.gif "Cameras Launcher Callibration")
+
+*The algorithem*
+- Launcher only moves to discrete encoder pairs [altitude, azimuth]
+
+- Move launcher to a set of encoder pairs
+
+- Record camera coordinates on a plane a distance r1 away 
+
+- Repeat for distance r2
+
+- Interpolate the rest of the points
+
+
+![Cameras Launcher Callibration Result](./pictures/clcr.png "Cameras Launcher Callibration Result")
+
 ## Software
