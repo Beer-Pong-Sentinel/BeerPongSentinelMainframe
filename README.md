@@ -106,7 +106,7 @@ We simulate both a triangular motion profile, which assumes instant change from 
 
 While both are not perfect and can be improved, by giving assuming less time in max acceleration for example, they give us a good idea of the torque and velocities we will need to operate in to actuate our launcher. 
 
-The model takes the following parameters:\
+The model takes the following parameters:
 ```python
 object_inertia 
 motor_inertia 
@@ -224,3 +224,7 @@ We use stereo calibration to to correct for lens distortions and determine the p
 ## Software
 
 ## Results
+
+
+### Aiming/Look up table callibration
+![Aiming Ball Perspective](./pictures/ad.gif "Aiming Ball Perspective")
