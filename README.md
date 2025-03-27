@@ -134,6 +134,17 @@ Such mothion profiles with different jerks settings are shown below (the graphin
 
 ### Components
 _Click to open OnShape CAD model_
+
+
+|  | Description | Part Number  | Amount | Link|
+|----------|----------|----------|----------|----------|
+|  | Timing Belt Pulley 1.500" OD, for 1/2" Shaft Diameter | 6495K752  | 2 | [McMaster](https://www.mcmaster.com/6495K752/) |
+|  | Rotary Shaft 1/2" Diameter, 6" Long | 4149N15  | 1 | [McMaster](https://www.mcmaster.com/4149N15/) |
+|| Ball Bearing for 1/2" Shaft Diameter | 3 |[McMaster](https://www.mcmaster.com/60355K173/)|
+|| Series Timing Belt| 6484K226 | 1 |[McMaster](https://www.mcmaster.com/6484K226/)|
+||  Dry-Running Nylon Sleeve Bearing Flanged, for 1/2" Shaft Diameter and 3/4" Housing ID, 7/16" Long| 6389K233 | 2 |[McMaster](https://www.mcmaster.com/6389K233/)|
+|| Carbon Steel Wide-Rim Ring, 0.048" Thick x 1/2" ID x 7/8" OD| 97669A200 | 1 (pack of 25) |[McMaster](https://www.mcmaster.com/6389K233/)|
+
 ### Launcher Mount and Maneuvering
 | [![Launcher Mount](./pictures/cad_launcher_mount.png "Launcher Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/a90c483078f0a216147ba77b?renderMode=0&uiState=67cce1751ec0ed3d7ef3efa9) | [![Azimuth Mount](./pictures/cad_azi.png "Azimuth Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/af73ce29d204dcf42df93766)| [![Altitude Mount](./pictures/cad_alti.png "Altitude Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/c06067e56aa459f53e365584?renderMode=0&uiState=67cce03d75f3db0bee079528)|
 |----------|----------|----------|
@@ -211,3 +222,5 @@ We use stereo calibration to to correct for lens distortions and determine the p
 ![Cameras Launcher Callibration Result](./pictures/clcr.png "Cameras Launcher Callibration Result")
 
 ## Software
+
+## Results
