@@ -75,9 +75,7 @@ _Note:_ The physical circuit in the current setup of the project is not the prin
 The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_pcb
 ![Proposed Solenoid Circuit](./pictures/solenoid_circuit.png "Proposed Solenoid Circuit")
 ## Mechanical 
-### Launcher Modifications
-![Launcher Modifications](./pictures/lm.png "Launcher Modifications")
-
+### Safety 
 The original airsoft we got for this project is the [Crosman R1 Full-Auto - Black](https://www.crosman.com/product/crosman-full-auto-r1-black-bb/).\
 The pneumatic mechanism requires two [12-gram Powerlet CO2 Cartridges](https://www.crosman.com/product/crosman-12-gram-powerlet-co2-cartridges/).\
 This airsoft/magazine uses [4.5mm copper pellets](https://www.crosman.com/product/crosman-copperhead-bbs/).
@@ -86,14 +84,10 @@ When testing the airsoft pneumatic mechanism/using it, especially in a closed ro
 
 *To learn more about saftey and replacing gas cartridges:* head to the safety folder and read about saftey of operating the airsoft in testing locations and how to safely replace the gas cartridges for the pneumatic mechanism. 
 
-### Components
-_Click to open OnShape CAD model_
-### Launcher Mount and Maneuvering
-| [![Launcher Mount](./pictures/cad_launcher_mount.png "Launcher Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/a90c483078f0a216147ba77b?renderMode=0&uiState=67cce1751ec0ed3d7ef3efa9) | [![Azimuth Mount](./pictures/cad_azi.png "Azimuth Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/af73ce29d204dcf42df93766)| [![Altitude Mount](./pictures/cad_alti.png "Altitude Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/c06067e56aa459f53e365584?renderMode=0&uiState=67cce03d75f3db0bee079528)|
-|----------|----------|----------|
-### Assembly 
+### Launcher Modifications
+![Launcher Modifications](./pictures/lm.png "Launcher Modifications")
 
-[![Full Assembly](./pictures/cad_full_ass.png)](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/76fc739196417cc4943c6696?renderMode=0&uiState=67cce26e1ec0ed3d7ef3f115)
+The main rational behind modifing the original airsoft is to reduce the mass, size, and moment of intertia to allow up to actuate our launcher with ease. A larger, weirdly shaped, launcher would have required but more expensive motors and a more rigid design of the launcher mounts. 
 
 ### Launcher's Moment of Interia
 Getting the moment of interia for the launcher plays a key role in the design and motor selection.
@@ -105,6 +99,49 @@ The launcher's model was built by weighting its various components and recreatin
 [launcher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
 
 ![launcher and Moment of Interia](./pictures/moe1.png "launcher and Moment of Interia")
+
+### Motor Selection
+To select motors we ran simulations of motion profiles using both the intertia of our launcher and the rotos intertia of some promessing motors. 
+We simulate both a triangular motion profile, which assumes instant change from acceleration to de-acceleration, and a trapaziodal motion profile, which assumes equal time in acceleration, operation in max acceleration, and deacceleration. 
+
+While both are not perfect and can be improved, by giving assuming less time in max acceleration for example, they give us a good idea of the torque and velocities we will need to operate in to actuate our launcher. 
+
+The model takes the following parameters:\
+```python
+object_inertia 
+motor_inertia 
+theta_target 
+time_window
+safety_factor
+```
+
+We recommend being conservative with the safety factor to account for imperfections in tuning, intertia calculations, and motion profile control.\
+An example of such trianguler motion profile can be seen below. 
+![Motion profile Example](./pictures/mpe.png "Motion profile Example")
+
+_Note_:\
+Something we learned in the hard way is that the rotor intertia should match the intertia of the load it drives. This mostly affects tuning the motor. In the case it does not match, you might want to gear the motor. This is not ideal as it will cause a lost in resolution of the encoder, but will provide better tuining. 
+
+_Our problem_:\
+Specificly with the motors we are using we found out that our altitude motor (SDK controlled) does not allow to limit the velocity for tuning. This causes the motor to torque saturate and to produce sub-optimal tuning. To mitigate this we created a program in our software to map the time it take to move to an angle with a certain velocity command. Creating a map of (velocity, angle) to (time taken). We than used/can use this to find the best (velocity, angle) command to use to minimize the time it takes to go to a location. 
+
+These profiles can be ran for any internal parameters you can change in the motor. We only found that you can change the Jerk and the "Fine-tuning" (how stiff/quite the motor moves) in our altitude (SDK controlled) motor. 
+
+Such mothion profiles with different jerks settings are shown below (the graphing script can be found under ./motor selection/Altitude Time Motion Profile Visualization.ipynb). 
+
+![Altitude Motion Profiles](./pictures/amp.png "Altitude Motion Profiles")
+[All showing mean time and std at velocity of 20rpm]
+
+### Components
+_Click to open OnShape CAD model_
+### Launcher Mount and Maneuvering
+| [![Launcher Mount](./pictures/cad_launcher_mount.png "Launcher Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/a90c483078f0a216147ba77b?renderMode=0&uiState=67cce1751ec0ed3d7ef3efa9) | [![Azimuth Mount](./pictures/cad_azi.png "Azimuth Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/af73ce29d204dcf42df93766)| [![Altitude Mount](./pictures/cad_alti.png "Altitude Mount")](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/c06067e56aa459f53e365584?renderMode=0&uiState=67cce03d75f3db0bee079528)|
+|----------|----------|----------|
+### Assembly 
+
+[![Full Assembly](./pictures/cad_full_ass.png)](https://cad.onshape.com/documents/360e54d875f63ab4db6ef54b/w/d57eff492a0fd340cef803da/e/76fc739196417cc4943c6696?renderMode=0&uiState=67cce26e1ec0ed3d7ef3f115)
+
+
 ## Firmware
 The full firmware project can be found under the firmware folder.\
 Our firmware runs on an Arduino Uno. 
