@@ -130,7 +130,7 @@ These profiles can be ran for any internal parameters you can change in the moto
 Such mothion profiles with different jerks settings are shown below (the graphing script can be found under ./motor selection/Altitude Time Motion Profile Visualization.ipynb). 
 
 ![Altitude Motion Profiles](./pictures/amp.png "Altitude Motion Profiles")
-[All showing mean time and std at velocity of 20rpm]
+[Mean time and std at velocity of 20rpm]
 
 ### Components
 _Click to open OnShape CAD model_
