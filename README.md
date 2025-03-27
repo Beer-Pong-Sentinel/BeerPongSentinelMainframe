@@ -227,4 +227,4 @@ We use stereo calibration to to correct for lens distortions and determine the p
 
 
 ### Aiming/Look up table callibration
-![Aiming Ball Perspective](./pictures/ad.gif "Aiming Ball Perspective")
+![Aiming Ball Perspective](./pictures/ad.png "Aiming Ball Perspective")
