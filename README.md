@@ -78,6 +78,14 @@ The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_p
 ### Launcher Modifications
 ![Launcher Modifications](./pictures/lm.png "Launcher Modifications")
 
+The original airsoft we got for this project is the ![Crosman R1 Full-Auto - Black](https://www.crosman.com/product/crosman-full-auto-r1-black-bb/).\
+The pneumatic mechanism requires two ![12-gram Powerlet CO2 Cartridges](https://www.crosman.com/product/crosman-12-gram-powerlet-co2-cartridges/).\
+This airsoft/magazine uses ![4.5mm copper pellets](https://www.crosman.com/product/crosman-copperhead-bbs/).
+
+When testing the airsoft pneumatic mechanism/using it, especially in a closed room, make sure to wear face protection. The pellets are copper and tend to bouce around. This will happen after a while even if you have a cardboard stack target. 
+
+*To learn more about saftey and replacing gas cartridges:* head to the safety folder and read about saftey of operating the airsoft in testing locations and how to safely replace the gas cartridges for the pneumatic mechanism. 
+
 ### Components
 _Click to open OnShape CAD model_
 ### Launcher Mount and Maneuvering
@@ -125,16 +133,16 @@ Considerations:
 
 _Note:_ Currently this sets both the pulse width and the frequency of pulses as the high time and low time are symmetric. This can be changed.
 
-**_Azimuth Motor Settlement Range:_**
+**_Azimuth Motor Settlement Range:_**\
 Location: ClearPath MSP
 
-**_Azimuth Motor Settlement Delay:_**
+**_Azimuth Motor Settlement Delay:_**\
 Location: ClearPath MSP
 
-**_Altitude Motor Settlement Range:_**
+**_Altitude Motor Settlement Range:_**\
 Location: ClearView 
 
-**_Altitude Motor Settlement Delay:_**
+**_Altitude Motor Settlement Delay:_**\
 Location: ClearView 
 
 
