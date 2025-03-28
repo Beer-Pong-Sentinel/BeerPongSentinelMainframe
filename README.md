@@ -194,6 +194,7 @@ Current Settings: 5\
 Considerations:
 - We have some tolerance for error so we can settle within some range of the encoder ctns
 - Moving faster might take priority.
+
 **_Altitude Motor Settlement Delay:_**\
 Location: ClearView 
 Access: Details -> Move Status Indicators... -> Verify Time (msec)\
