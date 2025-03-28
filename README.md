@@ -251,10 +251,10 @@ We use stereo calibration to to correct for lens distortions and determine the p
 
 ### Prediction
 
-## Results
+## Our System In Real Life
 
 ### Lacunher - Beerie
-![Beerie](./pictures/lirl.jpg "Beerie")
+![Beerie](./pictures/lirl.png "Beerie")
 
 ### Integration Box
 Our full integrated circuitry connects all components together through a single hub USB hub for a simple connection.
