@@ -223,7 +223,20 @@ We use stereo calibration to to correct for lens distortions and determine the p
 
 ## Software
 
+### Dependencies 
+
+### Programs
+
 ## Results
+
+### Integration Box
+Our full integrated circutry connects all components together through a single hub USB hub for a simple connection.
+Labels and markers, with detailed diagrams, make setting up quick and simple.
+![IRL Integration Box](./pictures/ibirl.jpg "IRL Integration Box")
+
+### Calibration Chessboard
+Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates, making it as flat as possible. 
+![IRL Chessboard](./pictures/cbirl.jpg "IRL Chessboard")
 
 
 ### Aiming/Look up table callibration
