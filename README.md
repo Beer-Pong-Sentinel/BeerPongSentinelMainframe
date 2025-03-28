@@ -246,7 +246,7 @@ We use stereo calibration to to correct for lens distortions and determine the p
 ## Results
 
 ### Integration Box
-Our full integrated circutry connects all components together through a single hub USB hub for a simple connection.
+Our full integrated circuitry connects all components together through a single hub USB hub for a simple connection.
 Labels and markers, with detailed diagrams, make setting up quick and simple.
 ![IRL Integration Box](./pictures/ibirl.jpg "IRL Integration Box")
 
