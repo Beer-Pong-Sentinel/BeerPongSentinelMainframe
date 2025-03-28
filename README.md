@@ -182,17 +182,25 @@ Considerations:
 _Note:_ Currently this sets both the pulse width and the frequency of pulses as the high time and low time are symmetric. This can be changed.
 
 **_Azimuth Motor Settlement Range:_**\
-Location: ClearPath MSP
+Location: ClearPath MSP\
 
 **_Azimuth Motor Settlement Delay:_**\
 Location: ClearPath MSP
 
 **_Altitude Motor Settlement Range:_**\
-Location: ClearView 
-
+Location: ClearView\
+Access: Details -> Move Status Indicators... -> In-Range Position Window (ctns)\
+Current Settings: 5\
+Considerations:
+- We have some tolerance for error so we can settle within some range of the encoder ctns
+- Moving faster might take priority.
 **_Altitude Motor Settlement Delay:_**\
 Location: ClearView 
-
+Access: Details -> Move Status Indicators... -> Verify Time (msec)\
+Current Settings: 10.1\
+Considerations:
+- Move done might given more than once if the launcher oscillates around a point.
+- More delay means more latency before we can trigger.
 
 ## Camera system
 
