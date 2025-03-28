@@ -204,6 +204,10 @@ Location: ClearView
 ![Camera's Distortion](./pictures/cd.png "Camera's Distortion")
 We use stereo calibration to to correct for lens distortions and determine the precise relative placement of two cameras. We use a printed chessboard pattern of known dimensions, by taking images at various positions and orientations. By analyzing these images, the calibration algorithm uses the known geometry of the chessboard to first estimate and correct each camera’s intrinsic parameters—thus “undistorting” the images. It then compares corresponding points in both camera views to determine the cameras’ relative positions and orientations. These calibration results, which include both the intrinsic corrections and the extrinsic parameters describing how the cameras are arranged, can be combined into a projection matrix that enables the reconstruction of a 3D point in world space from the two camera images.
 
+### Color Detection
+
+### Yolo-OpenCV Object Detection 
+
 ### Cameras-Launcher Callibration
 ![Cameras Launcher Callibration](./pictures/clc.gif "Cameras Launcher Callibration")
 
@@ -221,11 +225,23 @@ We use stereo calibration to to correct for lens distortions and determine the p
 
 ![Cameras Launcher Callibration Result](./pictures/clcr.png "Cameras Launcher Callibration Result")
 
+### Background Subtraction
+
 ## Software
 
 ### Dependencies 
 
 ### Programs
+#### Chessboard Calibration
+
+#### Lookup Table Construction
+
+#### Altitude Motion Profile
+
+#### Color Detection
+
+
+### Prediction
 
 ## Results
 
@@ -237,7 +253,6 @@ Labels and markers, with detailed diagrams, make setting up quick and simple.
 ### Calibration Chessboard
 Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates, making it as flat as possible. 
 ![IRL Chessboard](./pictures/cbirl.jpg "IRL Chessboard")
-
 
 ### Aiming/Look up table callibration
 ![Aiming Ball Perspective](./pictures/ad.png "Aiming Ball Perspective")
