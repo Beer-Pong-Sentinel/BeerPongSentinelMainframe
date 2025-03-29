@@ -159,7 +159,7 @@ Our firmware runs on an Arduino Uno.
 ![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
 ### Firmware's Parameters
-**_Solenoid Pulse Width:_**
+**_Solenoid Pulse Width:_**\
 Location: firmware\
 Variable: TRIGGERING_DELAY\
 Scale: Miliseconds\
@@ -168,7 +168,7 @@ Considerations:
 - Time needs to be enough to allow for the solenoid to provide optimal force to release the valve that open the magazine and releases air. 
 - Time cannot be to long as it will cause the valve to be open for longer and release too much air. 
 
-**_Step Signal Pulse Width:_**
+**_Step Signal Pulse Width:_**\
 Location: firmware\
 Variable: AZI_DELAY\
 Scale: Microseconds\
