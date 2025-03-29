@@ -183,9 +183,21 @@ _Note:_ Currently this sets both the pulse width and the frequency of pulses as 
 
 **_Azimuth Motor Settlement Range:_**\
 Location: ClearPath MSP\
+Access: Advanced -> High-Level Feedback (HLFB) Setup -> In-Range Position Window (ctns)\
+Current Settings: 1\
+Notes: Current HLFB Output setting is All System Go (ASG) - Position\
+Considerations: 
+- Azimuth motor has a smaller encoder resolution than altitude
+- See altitude considerations
 
 **_Azimuth Motor Settlement Delay:_**\
-Location: ClearPath MSP
+Location: ClearPath MSP\
+Access: Advanced -> High-Level Feedback (HLFB) Setup -> Verify Time (ms)\
+Current Settings: 10.1\
+Notes: Current HLFB Output setting is All System Go (ASG) - Position\
+Considerations: 
+- Azimuth motor tuning runs better the altitute
+- See altitude considerations
 
 **_Altitude Motor Settlement Range:_**\
 Location: ClearView\
