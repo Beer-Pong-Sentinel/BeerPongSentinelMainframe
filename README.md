@@ -23,6 +23,7 @@ Than we see the ball is in the air -> our camera detects a first image of it -> 
 Our estimates for all the erros are provided in the table below.
 |Source| Symbol | Quantity | Units |Notes|
 |----------|----------|----------|----------|----------|
+|Prediction|Ep|N/A||Need to collect data|
 |Integration|Ei|N/A||Need to collect data|
 |Cameras|Ec|0.3-0.8|Pixels|Result of camera's triangulation|
 |Motors - Azimuth|Eθ,azi|0.450|Degrees| Manufacturer data|
@@ -35,6 +36,14 @@ We would like to get the most accurate estimation for the maximum error in our s
 
 _Note_: We are assuming the pallet travels at around the speed the manufacturer claims *131meters per seconds*.
 
+### Interception Timeline
+To truly understand this project you will need to understand the timeline in which the system operate. This might take a few seconds (or a few months).\
+The important thing to note here that prediction should be implemented assuming worst case scenario. Since the launcher provide a move done command, we recommend to always choose an interception point as if all jitter before the move done actually happens, this will cause the error in interception to come only from actions taken after the move done status (plus the error from the LUT itself.).\
+This makes the main challenge problem of interception the timing of the triggering itself. This is since all error's are measureable. 
+![Interception Timeline](./pictures/tl.png "Interception Timeline")
+
+_Note_: The error in the LUT include in them the error in the cameras, error in the motors, and the error from integration. It is basically, the error given by where we want to aim (center of ball) minus where we were actually able to aim.
+_Note_: Some values such as LUT where not calculated yet. Prediction is only theoretical as we did not fully integrate it. 
 
 ## Electrical
 ### Layout
