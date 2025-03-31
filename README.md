@@ -96,7 +96,7 @@ The below figure shows our CAD model of the launcher with it's mechanical parame
 
 The launcher's model was built by weighting its various components and recreating the rough or exact shapes of its components. The result parameter should be considered as a lower bound. We recommend using a factor of safety of 1.5 at least in any calculations that include this parameters.
 
-[launcher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
+[Launcher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
 
 ![launcher and Moment of Interia](./pictures/moe1.png "launcher and Moment of Interia")
 
@@ -226,8 +226,36 @@ Considerations:
 We use stereo calibration to to correct for lens distortions and determine the precise relative placement of two cameras. We use a printed chessboard pattern of known dimensions, by taking images at various positions and orientations. By analyzing these images, the calibration algorithm uses the known geometry of the chessboard to first estimate and correct each camera’s intrinsic parameters—thus “undistorting” the images. It then compares corresponding points in both camera views to determine the cameras’ relative positions and orientations. These calibration results, which include both the intrinsic corrections and the extrinsic parameters describing how the cameras are arranged, can be combined into a projection matrix that enables the reconstruction of a 3D point in world space from the two camera images.
 
 ### Color Detection
+Initially we tried to detect a static target (tennis ball) using conventional methods such as HSV/RGB thresholding. 
+This turned out to be more challenging than we tought, as the camera resultion is only 720x540px.\
+While colors seem green, or red, to us, it is very clear in processing that even a tennis ball contains a lot of non green content. 
+To fix this we tried a few things:
+- Putting a black curtain in the background to more easily see the green tennis ball
+- Increaing the saturation on the cameras making most of the view look red, but making green more clear to distinguish
+- We pointed clear, consistants lights, that do not flicker, and turned off all the other light sources in the room.
+
+To read more about HSV and RGB thresholding see [OpenCV's official documentation](https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html).
 
 ### Yolo-OpenCV Object Detection 
+Evantually we decided to implement a simple DNN for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher callibration, and to be able to give an estimation of its error./
+
+YOLO is an open source model for object detection. It is extermly easy to use and has very impressive performace.\
+We are using *YOLOv8*, for compatability and reliability.
+
+Read more about [YOLO in the offical site](https://docs.ultralytics.com/).
+
+To train our YOLO model we simply found a dataset that looked promising to us on [RobotFlow](https://universe.roboflow.com/), that worked well when we tested it online.
+We found a dataset with 4725 annotated images of tennis balls. The important part for this is that high precision, and the images were not only in a tennis court (which would probably not be so good for detecting a tennis ball in a general environment)./
+[Our Dataset](https://universe.roboflow.com/alexa-wpmns/tennis-ball-obj-det/dataset/8)
+
+Training the model itself is very simple and can be done using a CLI. Note that we are not using YOLO in python, so we are going to feed the weights of the model to the OpenCV DNN (C++ does not have a YOLO model).
+[How to train a YOLO model](https://docs.ultralytics.com/modes/train/#usage-examples).
+[Read more about OpenCV DNN](https://docs.opencv.org/4.x/d2/d58/tutorial_table_of_content_dnn.html)
+
+From this point onwards we also wanted to utilize a dedicated GPU to do our image processing as fast as possible. For this we had to build OpenCV with Cuda nodes for DNN.
+[You can find how to buld OpenCV and Cuda here](https://medium.com/@amosstaileyyoung/build-opencv-with-dnn-and-cuda-for-gpu-accelerated-face-detection-27a3cdc7e9ce)
+
+
 
 ### Cameras-Launcher Callibration
 ![Cameras Launcher Callibration](./pictures/clc.gif "Cameras Launcher Callibration")
@@ -259,8 +287,9 @@ We use stereo calibration to to correct for lens distortions and determine the p
 
 #### Altitude Motion Profile
 
-#### Color Detection
+#### Color Thresholding
 
+#### YOLO Detection
 
 ### Prediction
 
