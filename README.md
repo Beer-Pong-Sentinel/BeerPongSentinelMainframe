@@ -20,6 +20,8 @@ Than we see the ball is in the air -> our camera detects a first image of it -> 
 
 ![Error Diagram](./pictures/ec.png "Error Diagram")
 
+The last error we need to account for is the error in the prediction itself. This comes from the differences in actual ball trajectories vs the trajectory we predict for them. To measure this simply comapre a trajectory of a ball from a video, to a predicted trajectory. Most of the work on this is done and can be found in (...).
+
 Our estimates for all the erros are provided in the table below.
 |Source| Symbol | Quantity | Units |Notes|
 |----------|----------|----------|----------|----------|
