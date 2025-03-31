@@ -305,7 +305,7 @@ Labels and markers, with detailed diagrams, make setting up quick and simple.
 
 ### Cameras Setup
 Our cameras are situated high with each 22.5 degree angle offset from their mounting point. This is done to capture a large range of view.
-![Cameras Setup](./pictures/cs.jpg "Cameras Setup")
+![Cameras Setup](./pictures/cs.png "Cameras Setup")
 
 ### Calibration Chessboard
 Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates, making it as flat as possible. 
