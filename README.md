@@ -303,6 +303,12 @@ From this point onwards we also wanted to utilize a dedicated GPU to do our imag
 #### YOLO Detection
 
 ## Prediction
+Prediction is one of the central tasks of our project. We know our trajectory is going to be parabolic, which allows us to use classical physics to create a prediction for the tranjectory of the ball.\
+The full work for the different methods of prediction we test can be found under ./simulation and data analysis/... 
+Under the ./simulation and data analysis/data folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
+We used real data we captured from our full camera setup in order to compare the predicted trajectory to a real life trajectory. 
+
+We considered the following prediction approches:
 
 ## Our System In Real Life
 
