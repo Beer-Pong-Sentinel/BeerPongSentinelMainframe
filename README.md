@@ -230,6 +230,9 @@ Considerations:
 ### Camera's Parameters
 The full camera parameters can be found under /simulations and data analysis/Camera Calculations.xlsx
 This provides the full details of all the intrinsic parameters of the [BFS-U3-04S2C-C]((https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)) cameras we are using, inluding some that require calculations. 
+
+![Camera's Parameters Table](./pictures/camparam.png "Camera's Parameters Table")
+
 ### Intrinsic/Extrinsic Calibration 
 ![Chessboard Setup](./pictures/eic.png "Chessboard Setup")
 
