@@ -149,7 +149,7 @@ Such mothion profiles with different jerks settings are shown below (the graphin
 |----------|----------|----------|----------|----------|
 |  | Timing Belt Pulley 1.500" OD, for 1/2" Shaft Diameter | 6495K752  | 2 | [McMaster](https://www.mcmaster.com/6495K752/) |
 |  | Rotary Shaft 1/2" Diameter, 6" Long | 4149N15  | 1 | [McMaster](https://www.mcmaster.com/4149N15/) |
-|| Ball Bearing for 1/2" Shaft Diameter | 3 |[McMaster](https://www.mcmaster.com/60355K173/)|
+|| Ball Bearing for 1/2" Shaft Diameter |60355K173| 3 |[McMaster](https://www.mcmaster.com/60355K173/)|
 || Series Timing Belt| 6484K226 | 1 |[McMaster](https://www.mcmaster.com/6484K226/)|
 ||  Dry-Running Nylon Sleeve Bearing Flanged, for 1/2" Shaft Diameter and 3/4" Housing ID, 7/16" Long| 6389K233 | 2 |[McMaster](https://www.mcmaster.com/6389K233/)|
 || Carbon Steel Wide-Rim Ring, 0.048" Thick x 1/2" ID x 7/8" OD| 97669A200 | 1 (pack of 25) |[McMaster](https://www.mcmaster.com/6389K233/)|
@@ -228,7 +228,8 @@ Considerations:
 ## Camera system
 
 ### Camera's Parameters
-
+The full camera parameters can be found under /simulations and data analysis/Camera Calculations.xlsx
+This provides a full details of all the intrinsic parameters of a [BFS-U3-04S2C-C]((https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)) cameras we are using, inluding some that require calculations. 
 ### Intrinsic/Extrinsic Callibration 
 ![Chessboard Setup](./pictures/eic.png "Chessboard Setup")
 
