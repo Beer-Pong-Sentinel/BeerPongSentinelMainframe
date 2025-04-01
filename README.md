@@ -229,7 +229,7 @@ Considerations:
 
 ### Camera's Parameters
 The full camera parameters can be found under /simulations and data analysis/Camera Calculations.xlsx
-This provides a full details of all the intrinsic parameters of a [BFS-U3-04S2C-C]((https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)) cameras we are using, inluding some that require calculations. 
+This provides the full details of all the intrinsic parameters of the [BFS-U3-04S2C-C]((https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)) cameras we are using, inluding some that require calculations. 
 ### Intrinsic/Extrinsic Callibration 
 ![Chessboard Setup](./pictures/eic.png "Chessboard Setup")
 
@@ -302,7 +302,7 @@ From this point onwards we also wanted to utilize a dedicated GPU to do our imag
 
 #### YOLO Detection
 
-### Prediction
+## Prediction
 
 ## Our System In Real Life
 
