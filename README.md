@@ -294,6 +294,11 @@ You can find a full simulation for this calibration that was done prior to imple
 ## Software
 
 ### Dependencies 
+- Qt 6.8.0 or 6.8.3 (we used [Qt Creator](https://www.qt.io/product/development-tools))
+- [Spinnaker SDK](https://www.teledynevisionsolutions.com/products/spinnaker-sdk/)
+- OpenCV Built with [Nvidia DNN](https://developer.nvidia.com/cudnn)
+- [Teknic SDK](https://teknic.com/downloads/)
+- [Eigen C++](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 
 ### Programs
 #### Chessboard Calibration
