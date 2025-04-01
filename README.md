@@ -230,7 +230,7 @@ Considerations:
 ### Camera's Parameters
 The full camera parameters can be found under /simulations and data analysis/Camera Calculations.xlsx
 This provides the full details of all the intrinsic parameters of the [BFS-U3-04S2C-C]((https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)) cameras we are using, inluding some that require calculations. 
-### Intrinsic/Extrinsic Callibration 
+### Intrinsic/Extrinsic Calibration 
 ![Chessboard Setup](./pictures/eic.png "Chessboard Setup")
 
 ![Camera's Distortion](./pictures/cd.png "Camera's Distortion")
@@ -248,7 +248,7 @@ To fix this we tried a few things:
 To read more about HSV and RGB thresholding see [OpenCV's official documentation](https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html).
 
 ### Yolo-OpenCV Object Detection 
-Evantually we decided to implement a simple DNN for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher callibration, and to be able to give an estimation of its error./
+Evantually we decided to implement a simple DNN for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher calibration, and to be able to give an estimation of its error./
 
 YOLO is an open source model for object detection. It is extermly easy to use and has very impressive performace.\
 We are using *YOLOv8*, for compatability and reliability.
@@ -268,8 +268,8 @@ From this point onwards we also wanted to utilize a dedicated GPU to do our imag
 
 
 
-### Cameras-Launcher Callibration
-![Cameras Launcher Callibration](./pictures/clc.gif "Cameras Launcher Callibration")
+### Cameras-Launcher calibration
+![Cameras Launcher Calibration](./pictures/clc.gif "Cameras Launcher Calibration")
 
 *The algorithem*
 - Launcher only moves to discrete encoder pairs [altitude, azimuth]
@@ -283,8 +283,9 @@ From this point onwards we also wanted to utilize a dedicated GPU to do our imag
 - Interpolate the rest of the points
 
 
-![Cameras Launcher Callibration Result](./pictures/clcr.png "Cameras Launcher Callibration Result")
+![Cameras Launcher Calibration Result](./pictures/clcr.png "Cameras Launcher Calibration Result")
 
+You can find a full simulation for this calibration that was done prior to implementing it under ./simulations and data analysis/Laser_Cal_Sim.ipynb to see how we came up with this idea for calibration, including some estimations for the error it might have.
 ### Background Subtraction
 
 ## Software
@@ -328,5 +329,5 @@ Our cameras are situated high with each 22.5 degree angle offset from their moun
 Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates, making it as flat as possible. 
 ![IRL Chessboard](./pictures/cbirl.jpg "IRL Chessboard")
 
-### Aiming/Look up table callibration
+### Aiming/Look up table calcibration
 ![Aiming Ball Perspective](./pictures/ad.png "Aiming Ball Perspective")
