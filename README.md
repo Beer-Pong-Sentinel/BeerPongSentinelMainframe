@@ -304,15 +304,22 @@ You can find a full simulation for this calibration that was done prior to imple
 - [Eigen C++](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 
 ### Programs
-#### Chessboard Calibration
+### Motor Control
+![Motor Control gui](./pictures/guimc.png "Motor Control gui")
 
-#### Lookup Table Construction
+#### Chessboard Calibration
+![Chessboard Calibration](./pictures/gui2.png "Chessboard Calibration")
+
+#### Lookup Table Construction (Camera-Motor Calibration)
+![Lookup Table Construction](./pictures/gui3.png "Lookup Table Construction")
 
 #### Altitude Motion Profile
 
 #### Color Thresholding
+![Color Thresholding](./pictures/guithres.png "Color Thresholding")
 
 #### YOLO Detection
+![Lookup Table Construction](./pictures/gui.png "Lookup Table Construction")
 
 ## Prediction
 ![Predication Example](./pictures/prediction1.png "Prediction Example")
