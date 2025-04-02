@@ -138,12 +138,12 @@ Specificly with the motors we are using we found out that our altitude motor (SD
 
 These profiles can be ran for any internal parameters you can change in the motor. We only found that you can change the Jerk and the "Fine-tuning" (how stiff/quite the motor moves) in our altitude (SDK controlled) motor. 
 
-Such mothion profiles with different jerks settings are shown below (the graphing script can be found under ./motors/Altitude Time Motion Profile Visualization.ipynb). 
+Such mothion profiles with different jerks settings are shown below (the graphing script can be found under [./motors/Altitude Time Motion Profile Visualization.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/motors/Altitude%20Time%20Motion%20Profile%20Visualization.ipynb)). 
 
 ![Altitude Motion Profiles](./pictures/amp.png "Altitude Motion Profiles")
 [Mean time and std at velocity of 20rpm]
 ### Motor Tuning
-Both motors need to to be tuned with ClearPath (azimuth) and ClearView (altitude). The tuning we are using can be found under the ./motors folder with the timestamp and description.
+Both motors need to to be tuned with ClearPath (azimuth) and ClearView (altitude). The tuning we are using can be found under the [./motors](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/motors)folder with the timestamp and description.
 
 _Important Last Minute Note:_ We found out that the calibration files are readable! That means that you can tune the motor by changing their parameters. A sub-project for this will be to make your own tuning program that will limit the velocity of the altitude motor and tune it well (though this is more teknic's job).
 ### Components
