@@ -254,7 +254,7 @@ To fix this we tried a few things:
 To read more about HSV and RGB thresholding see [OpenCV's official documentation](https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html).
 
 ### Yolo-OpenCV Object Detection 
-Evantually we decided to implement a simple DNN for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher calibration, and to be able to give an estimation of its error./
+Evantually we decided to implement a simple DNN for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher calibration, and to be able to give an estimation of its error.
 
 YOLO is an open source model for object detection. It is extermly easy to use and has very impressive performace.\
 We are using *YOLOv8*, for compatability and reliability.
@@ -291,7 +291,7 @@ From this point onwards we also wanted to utilize a dedicated GPU to do our imag
 
 ![Cameras Launcher Calibration Result](./pictures/clcr.png "Cameras Launcher Calibration Result")
 
-You can find a full simulation for this calibration that was done prior to implementing it under ./simulations and data analysis/Laser_Cal_Sim.ipynb to see how we came up with this idea for calibration, including some estimations for the error it might have.
+You can find a full simulation for this calibration that was done prior to implementing it under [./simulations and data analysis/Laser_Cal_Sim.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/simulations%20and%20data%20analysis/Laser_Cal_Sim.ipynb) to see how we came up with this idea for calibration, including some estimations for the error it might have.
 ### Background Subtraction
 
 ## Software
@@ -318,7 +318,7 @@ You can find a full simulation for this calibration that was done prior to imple
 ![Predication Example](./pictures/prediction1.png "Prediction Example")
 Prediction is one of the central tasks of our project. We know our trajectory is going to be parabolic, which allows us to use classical physics to create a prediction for the tranjectory of the ball.\
 The full work for the different methods of prediction we test can be found under ./simulation and data analysis/... 
-Under the ./simulation and data analysis/data folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
+Under the [./simulation and data analysis/data](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/data) folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
 We used real data we captured from our full camera setup in order to compare the predicted trajectory to a real life trajectory. 
 
 ## Our System In Real Life
