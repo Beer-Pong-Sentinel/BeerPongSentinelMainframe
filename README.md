@@ -328,22 +328,33 @@ You can find a full simulation for this calibration that was done prior to imple
 
 #### Altitude Motion Profile
 
-#### Color Thresholding
-![Color Thresholding](./pictures/guithres.png "Color Thresholding")
+#### Ball Detection
+![Ball Detection](./pictures/guithres.png "Ball Detection")
+In order to intercept the ball at some point along its trajectory, we need to triangulate its position across 3D space both quickly and accurately. However, to triangulate the position of the ball, we need to determine the pixel coordinates of the center of the ball for each image from our two cameras. Thus, we need a robust image processing pipeline that can efficiently and consistently retrieve the centroid of a ball from an image.
+
+We constructed the Ball Detection pipeline to accomplish this task which works as follows:
+
+1. First, apply an HSV threshold to the image, which highlights only objects within a certain hue, saturation, and value range. 
+2. Next, apply a MOG2 background subtraction to identify any moving objects in the image. 
+3. Combine these two outputs in order to retreive only moving objects which match the specified colours defined by the HSV range. 
+4. Once combined, apply a dilation and erosion process to remove any noise. The final image should contain only highlighted pixels that match the position of the ball.
+5. Lastly, find the centroid of the highlighted pixels for both camera's and pass these values to the triangulation function to determine the position of the ball in 3D space.
 
 #### YOLO Detection
-![Lookup Table Construction](./pictures/gui.png "Lookup Table Construction")
+![YOLO gui](./pictures/guiyolo.png "YOLO gui")
 
 ## Prediction
 ![Predication Example](./pictures/prediction1.png "Prediction Example")
 Prediction is one of the central tasks of our project. We know our trajectory is going to be parabolic, which allows us to use classical physics to create a prediction for the tranjectory of the ball.\
-The full work for the different methods of prediction we test can be found under ./simulation and data analysis/... 
+The full work for the different methods of prediction we test can be found under [./simulation and data analysis/PredictionSimulation.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/PredictionSimulation.ipynb)
 Under the [./simulation and data analysis/data](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/data) folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
 We used real data we captured from our full camera setup in order to compare the predicted trajectory to a real life trajectory. 
 
 
 ### Gravity Calibration
 To be able to predict accurately, we cannot just assume where gravity points to. We cannot just say that gravity is pointing down. To produce a gravity vector (in our camera coordiantes), we simply take a few videos with our camera system, of us letting go off a ball. We then process this data to find the gravity vector, and to estimate the value that we are observing for gravity. This provides much more accurate results than just assuming gravity is 9.8m/s
+
+The code we use to estimate the gravity vector can be found under [./simulations and data analysis/GravityEstimation.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/GravityEstimation.ipynb)
 ## Our System In Real Life
 
 ### Lacunher - Beerie
@@ -367,30 +378,7 @@ Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates
 
 ## Our Team
 
-<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-
-<div style="text-align: center; margin-bottom: 20px; ">
-  <img src="pictures/harry.png" alt="Team Member 1" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Harry Hu</strong></p>
-  <a href="https://www.linkedin.com/in/harrytyhu/" target="_blank">LinkedIn</a>
-</div>
-
-<div style="text-align: center; margin-bottom: 20px;">
-  <img src="pictures/eldad.png" alt="Team Member 2" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Eldad Zipori</strong></p>
-  <a href="https://www.linkedin.com/in/eldad-zipori-a411a5157/" target="_blank">LinkedIn</a>
-</div>
-
-<div style="text-align: center; margin-bottom: 20px;">
-  <img src="pictures/polina.png" alt="Team Member 3" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Polina Shopina</strong></p>
-  <a href="https://www.linkedin.com/in/polina-shopina/" target="_blank">LinkedIn</a>
-</div>
-
-<div style="text-align: center; margin-bottom: 20px;">
-  <img src="pictures/brian.png" alt="Team Member 4" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Brian Yan</strong></p>
-  <a href="https://www.linkedin.com/in/brian-yan/" target="_blank">LinkedIn</a>
-</div>
-
-</div>
+| ![](pictures/harry.png/?) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
+|:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
+| **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
+| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
