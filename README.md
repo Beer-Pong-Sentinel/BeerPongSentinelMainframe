@@ -328,7 +328,7 @@ We constructed the Ball Detection pipeline to accomplish this task which works a
 5. Lastly, find the centroid of the highlighted pixels for both camera's and pass these values to the triangulation function to determine the position of the ball in 3D space.
 
 #### YOLO Detection
-![Lookup Table Construction](./pictures/gui.png "Lookup Table Construction")
+![YOLO gui](./pictures/guiyolo.png "YOLO gui")
 
 ## Prediction
 ![Predication Example](./pictures/prediction1.png "Prediction Example")
