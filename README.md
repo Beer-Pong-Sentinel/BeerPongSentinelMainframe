@@ -148,14 +148,14 @@ Both motors need to to be tuned with ClearPath (azimuth) and ClearView (altitude
 _Important Last Minute Note:_ We found out that the calibration files are readable! That means that you can tune the motor by changing their parameters. A sub-project for this will be to make your own tuning program that will limit the velocity of the altitude motor and tune it well (though this is more teknic's job).
 ### Components
 
-|  | Description | Part Number  | Amount | Link|
-|----------|----------|----------|----------|----------|
-|  | Timing Belt Pulley 1.500" OD, for 1/2" Shaft Diameter | 6495K752  | 2 | [McMaster](https://www.mcmaster.com/6495K752/) |
-|  | Rotary Shaft 1/2" Diameter, 6" Long | 4149N15  | 1 | [McMaster](https://www.mcmaster.com/4149N15/) |
-|| Ball Bearing for 1/2" Shaft Diameter |60355K173| 3 |[McMaster](https://www.mcmaster.com/60355K173/)|
-|| Series Timing Belt| 6484K226 | 1 |[McMaster](https://www.mcmaster.com/6484K226/)|
-||  Dry-Running Nylon Sleeve Bearing Flanged, for 1/2" Shaft Diameter and 3/4" Housing ID, 7/16" Long| 6389K233 | 2 |[McMaster](https://www.mcmaster.com/6389K233/)|
-|| Carbon Steel Wide-Rim Ring, 0.048" Thick x 1/2" ID x 7/8" OD| 97669A200 | 1 (pack of 25) |[McMaster](https://www.mcmaster.com/6389K233/)|
+| Description | Part Number  | Amount | Link|
+|----------|----------|----------|----------|
+| Timing Belt Pulley 1.500" OD, for 1/2" Shaft Diameter | 6495K752  | 2 | [McMaster](https://www.mcmaster.com/6495K752/) |
+| Rotary Shaft 1/2" Diameter, 6" Long | 4149N15  | 1 | [McMaster](https://www.mcmaster.com/4149N15/) |
+| Ball Bearing for 1/2" Shaft Diameter |60355K173| 3 |[McMaster](https://www.mcmaster.com/60355K173/)|
+| Series Timing Belt| 6484K226 | 1 |[McMaster](https://www.mcmaster.com/6484K226/)|
+|  Dry-Running Nylon Sleeve Bearing Flanged, for 1/2" Shaft Diameter and 3/4" Housing ID, 7/16" Long| 6389K233 | 2 |[McMaster](https://www.mcmaster.com/6389K233/)|
+| Carbon Steel Wide-Rim Ring, 0.048" Thick x 1/2" ID x 7/8" OD| 97669A200 | 1 (pack of 25) |[McMaster](https://www.mcmaster.com/6389K233/)|
 
 ### Launcher Mount and Maneuvering
 _Click to open OnShape CAD model_
