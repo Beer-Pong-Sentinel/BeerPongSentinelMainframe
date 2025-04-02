@@ -319,7 +319,7 @@ You can find a full simulation for this calibration that was done prior to imple
 ![Ball Detection](./pictures/guithres.png "Ball Detection")
 In order to intercept the ball at some point along its trajectory, we need to triangulate its position across 3D space both quickly and accurately. However, to triangulate the position of the ball, we need to determine the pixel coordinates of the center of the ball for each image from our two cameras. Thus, we need a robust image processing pipeline that can efficiently and consistently retrieve the centroid of a ball from an image.
 
-We constructed the Ball Detection pipeline to accomplish this task. The processing pipeline is as follows:
+We constructed the Ball Detection pipeline to accomplish this task which works as follows:
 
 1. First, apply an HSV threshold to the image, which highlights only objects within a certain hue, saturation, and value range. 
 2. Next, apply a MOG2 background subtraction to identify any moving objects in the image. 
