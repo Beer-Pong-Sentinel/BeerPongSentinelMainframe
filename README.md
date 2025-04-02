@@ -365,30 +365,7 @@ Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates
 
 ## Our Team
 
-<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-
-<div style="text-align: center; margin-bottom: 20px; ">
-  <img src="pictures/harry.png" alt="Team Member 1" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Harry Hu</strong></p>
-  <a href="https://www.linkedin.com/in/harrytyhu/" target="_blank">LinkedIn</a>
-</div>
-
-<div style="text-align: center; margin-bottom: 20px;">
-  <img src="pictures/eldad.png" alt="Team Member 2" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Eldad Zipori</strong></p>
-  <a href="https://www.linkedin.com/in/eldad-zipori-a411a5157/" target="_blank">LinkedIn</a>
-</div>
-
-<div style="text-align: center; margin-bottom: 20px;">
-  <img src="pictures/polina.png" alt="Team Member 3" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Polina Shopina</strong></p>
-  <a href="https://www.linkedin.com/in/polina-shopina/" target="_blank">LinkedIn</a>
-</div>
-
-<div style="text-align: center; margin-bottom: 20px;">
-  <img src="pictures/brian.png" alt="Team Member 4" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-  <p><strong>Brian Yan</strong></p>
-  <a href="https://www.linkedin.com/in/brian-yan/" target="_blank">LinkedIn</a>
-</div>
-
-</div>
+| ![](pictures/harry.png) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
+|:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
+| **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
+| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
