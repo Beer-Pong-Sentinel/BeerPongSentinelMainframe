@@ -365,7 +365,7 @@ Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates
 
 ## Our Team
 
-| ![](pictures/harry.png) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
+| ![](pictures/harry.png/?) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
 |:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
 | **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
-| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/?) |
+| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
