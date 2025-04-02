@@ -304,7 +304,7 @@ You can find a full simulation for this calibration that was done prior to imple
 - [Eigen C++](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 
 ### Programs
-### Motor Control
+#### Motor Control
 ![Motor Control gui](./pictures/guimc.png "Motor Control gui")
 
 #### Chessboard Calibration
