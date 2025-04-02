@@ -142,7 +142,10 @@ Such mothion profiles with different jerks settings are shown below (the graphin
 
 ![Altitude Motion Profiles](./pictures/amp.png "Altitude Motion Profiles")
 [Mean time and std at velocity of 20rpm]
+### Motor Tuning
+Both motors need to to be tuned with ClearPath (azimuth) and ClearView (altitude). The tuning we are using can be found under the ./motors folder with the timestamp and description.
 
+_Important Last Minute Note:_ We found out that the calibration files are readable! That means that you can tune the motor by changing their parameters. A sub-project for this will be to make your own tuning program that will limit the velocity of the altitude motor and tune it well (though this is more teknic's job).
 ### Components
 
 |  | Description | Part Number  | Amount | Link|
