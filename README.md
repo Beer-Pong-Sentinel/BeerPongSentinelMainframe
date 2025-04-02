@@ -262,14 +262,14 @@ We are using *YOLOv8*, for compatability and reliability.
 Read more about [YOLO in the offical site](https://docs.ultralytics.com/).
 
 To train our YOLO model we simply found a dataset that looked promising to us on [RobotFlow](https://universe.roboflow.com/), that worked well when we tested it online.
-We found a dataset with 4725 annotated images of tennis balls. The important part for this is that high precision, and the images were not only in a tennis court (which would probably not be so good for detecting a tennis ball in a general environment).
+We found a dataset with 4725 annotated images of tennis balls. The important part for this is that high precision, and the images were not only in a tennis court (which would probably not be so good for detecting a tennis ball in a general environment).\
 [Our Dataset](https://universe.roboflow.com/alexa-wpmns/tennis-ball-obj-det/dataset/8)
 
-Training the model itself is very simple and can be done using a CLI. Note that we are not using YOLO in python, so we are going to feed the weights of the model to the OpenCV DNN (C++ does not have a YOLO model). This is done by converting the trained model to ONNX format.
-[How to train a YOLO model](https://docs.ultralytics.com/modes/train/#usage-examples).
+Training the model itself is very simple and can be done using a CLI. Note that we are not using YOLO in python, so we are going to feed the weights of the model to the OpenCV DNN (C++ does not have a YOLO model). This is done by converting the trained model to ONNX format.\
+[How to train a YOLO model](https://docs.ultralytics.com/modes/train/#usage-examples).\
 [Read more about OpenCV DNN](https://docs.opencv.org/4.x/d2/d58/tutorial_table_of_content_dnn.html)
 
-From this point onwards we also wanted to utilize a dedicated GPU to do our image processing as fast as possible. For this we had to build OpenCV with Cuda nodes for DNN.
+From this point onwards we also wanted to utilize a dedicated GPU to do our image processing as fast as possible. For this we had to build OpenCV with Cuda nodes for DNN.\
 [You can find how to buld OpenCV and Cuda here](https://medium.com/@amosstaileyyoung/build-opencv-with-dnn-and-cuda-for-gpu-accelerated-face-detection-27a3cdc7e9ce)
 
 
