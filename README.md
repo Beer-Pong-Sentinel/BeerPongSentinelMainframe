@@ -312,12 +312,11 @@ You can find a full simulation for this calibration that was done prior to imple
 #### YOLO Detection
 
 ## Prediction
+![Predication Example](./pictures/prediction1.png "Prediction Example")
 Prediction is one of the central tasks of our project. We know our trajectory is going to be parabolic, which allows us to use classical physics to create a prediction for the tranjectory of the ball.\
 The full work for the different methods of prediction we test can be found under ./simulation and data analysis/... 
 Under the ./simulation and data analysis/data folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
 We used real data we captured from our full camera setup in order to compare the predicted trajectory to a real life trajectory. 
-
-We considered the following prediction approches:
 
 ## Our System In Real Life
 
