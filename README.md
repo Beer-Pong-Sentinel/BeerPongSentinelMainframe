@@ -1,28 +1,31 @@
 # Beer Pong Sentinel Project
-This page contains a detailed description of the Beer Pong Sentinel capstone project for [ENPH 479](https://projectlab.engphys.ubc.ca/enph-459-479/) course at UBC.
+This page contains a detailed description of the Beer Pong Sentinel project for the Engineering Physics capstone course at UBC.
 
 ## Background
 The inspiration for this project came from an innocent university game - beer pong.
-We thought - “what if, we can build a robot that can intercept all of our rival’s shots!”
+We thought, “it would be pretty cool to build a robot that could intercept all of our opponent's shots”! 
 
-This inspired to construct a small scale “aerial defence” setup for us to explore similar setting to beer pong.
-Our goal is to deflect a target reaching a zone at the edge of a table using an interception system.
+Although we've pivoted away from ping pong balls to the larger and more predictable tennis balls, our goal remains the same: to prevent a target from reaching a zone at the edge of a table using an interception system.
 
 ### General Interception Process
 ![High Level Overview](./pictures/hlo.gif "High Level Overview")
 
 The small animation shows the different high level stages our system has to take to intercept a ball.
 
-First you see the general setup of our system, and it's different comppnents.
-Than we see the ball is in the air -> our camera detects a first image of it -> more pictures are collected -> a predicted path for the ball is produced -> launcher moves to a predicted interception position -> launcher is triggered to intecept a ball.
+First you see the general setup of our system, and it's different components. The remaining steps are as follows:
+* our cameras detect a tennis ball in the air and triangulate its 3D location
+* our cameras continue capturing frames until we have enough data to predict the target's trajectory
+* we compute the predicted trajectory and based on our understanding of system latency, determine where along the trajectory to intercept the target
+* we rotate our launcher in the altitude and azimuth directions
+* we trigger the launcher to fire an interceptor at the right time
 
 ### Error, Latency, Jitter, and Uncertainty
 
 ![Error Diagram](./pictures/ec.png "Error Diagram")
 
-The last error we need to account for is the error in the prediction itself. This comes from the differences in actual ball trajectories vs the trajectory we predict for them. To measure this simply comapre a trajectory of a ball from a video, to a predicted trajectory. Most of the work on this is done and can be found in (...).
+The last error we need to account for is the error in the prediction itself. This comes from the differences in actual ball trajectories vs the trajectory we predict for them. To measure this simply compare  a trajectory of a ball from a video, to a predicted trajectory. Most of the work on this is done and can be found in (...).
 
-Our estimates for all the erros are provided in the table below.
+Our estimates for all the errors are provided in the table below.
 |Source| Symbol | Quantity | Units |Notes|
 |----------|----------|----------|----------|----------|
 |Prediction|Ep|N/A||Need to collect data|
@@ -33,19 +36,24 @@ Our estimates for all the erros are provided in the table below.
 |Pneumatic Mechanism| Eθ,s|0.00485| Radians | Maximum measured spread|
 |Electromechanical Jitter| Et|1.2|milliseconds| Maximum measured jitter| 
 
-_Why have different units?_\
-We would like to get the most accurate estimation for the maximum error in our system. For that reason we comply with the manufacturer choice of unit, and covert the units only when plugging into the final error estimation. 
+_Note_: The integration error Ei encapsulates the error in the cameras and the motors when trying to aim at a target after motor-calibration. It can be thought of as the shortest distance between a laser beam collinear with the launch barrel and a stationary target's centroid.
 
-_Note_: We are assuming the pallet travels at around the speed the manufacturer claims *131meters per seconds*.
+_Note_: Some values such as the integration error Ei are not calculated yet. Prediction is only theoretical as we did not fully integrate it. 
+
+<!-- _Why have different units?_\
+We would like to get the most accurate estimation for the maximum error in our system. For that reason we comply with the manufacturer choice of unit, and covert the units only when plugging into the final error estimation.  -->
+
+<!-- _Note_: We are assuming the pallet travels at around the speed the manufacturer claims *131meters per seconds*. -->
 
 ### Interception Timeline
-To truly understand this project you will need to understand the timeline in which the system operate. This might take a few seconds (or a few months).\
-The important thing to note here that prediction should be implemented assuming worst case scenario. Since the launcher provide a move done command, we recommend to always choose an interception point as if all jitter before the move done actually happens, this will cause the error in interception to come only from actions taken after the move done status (plus the error from the LUT itself.).\
-This makes the main challenge problem of interception the timing of the triggering itself. This is since all error's are measureable. 
-![Interception Timeline](./pictures/tl.png "Interception Timeline")
+To truly understand this project you will need to understand the timeline in which the system operate. This might take a few seconds (or a few months).
 
-_Note_: The error in the LUT include in them the error in the cameras, error in the motors, and the error from integration. It is basically, the error given by where we want to aim (center of ball) minus where we were actually able to aim.
-_Note_: Some values such as LUT where not calculated yet. Prediction is only theoretical as we did not fully integrate it. 
+The important thing to note here that prediction is implemented assuming worst-case latency for all processes. This means that the only jitter that affects our interception error is the electromechanical jitter in our triggering mechanism as we always wait a constant amount of time before firing.
+
+<!-- Since the launcher provide a move done command, we recommend to always choose an interception point as if all jitter before the move done actually happens, this will cause the error in interception to come only from actions taken after the move done status (plus the error from the LUT itself.).
+
+This makes the main challenge problem of interception the timing of the triggering itself. This is since all error's are measureable.  -->
+![Interception Timeline](./pictures/tl.png "Interception Timeline")
 
 ## Electrical
 ### Layout
@@ -83,39 +91,41 @@ _Note_: Some values such as LUT where not calculated yet. Prediction is only the
 ### Solenoid Control Circuit
 _Note:_ The physical circuit in the current setup of the project is not the printed PCB, but a breadboard version without the option for a manual control and a 5V voltage regulator that steps down the 24V for the solenoid.
 
-The full KiCAD design for the solenoid control PCB can be found under sol_ctrl_pcb
+The full KiCAD design for the solenoid control PCB can be found inside `sol_ctrl_pcb`.
 ![Proposed Solenoid Circuit](./pictures/solenoid_circuit.png "Proposed Solenoid Circuit")
 ## Mechanical 
-### Safety 
-The original airsoft we got for this project is the [Crosman R1 Full-Auto - Black](https://www.crosman.com/product/crosman-full-auto-r1-black-bb/).\
+ 
+The original BB gun we got for this project is the [Crosman R1 Full-Auto - Black](https://www.crosman.com/product/crosman-full-auto-r1-black-bb/).\
 The pneumatic mechanism requires two [12-gram Powerlet CO2 Cartridges](https://www.crosman.com/product/crosman-12-gram-powerlet-co2-cartridges/).\
-This airsoft/magazine uses [4.5mm copper pellets](https://www.crosman.com/product/crosman-copperhead-bbs/).
+This magazine uses [4.5mm copper pellets](https://www.crosman.com/product/crosman-copperhead-bbs/).
 
-When testing the airsoft pneumatic mechanism/using it, especially in a closed room, make sure to wear face protection. The pellets are copper and tend to bouce around. This will happen after a while even if you have a cardboard stack target. 
+### Safety
 
-*To learn more about saftey and replacing gas cartridges:* head to the safety folder and read about saftey of operating the airsoft in testing locations and how to safely replace the gas cartridges for the pneumatic mechanism. 
+When testing or operating the BB gun pneumatic mechanism/especially in a closed room, make sure to wear face protection. The pellets are copper and tend to bounce around. This will happen after a while even if you have a cardboard stack target. 
+
+*To learn more about safety and replacing gas cartridges:* head to the `safety` folder and read about safety of operating the BB gun in testing locations and how to safely replace the gas cartridges for the pneumatic mechanism. 
 
 ### Launcher Modifications
 ![Launcher Modifications](./pictures/lm.png "Launcher Modifications")
 
-The main rational behind modifing the original airsoft is to reduce the mass, size, and moment of intertia to allow up to actuate our launcher with ease. A larger, weirdly shaped, launcher would have required but more expensive motors and a more rigid design of the launcher mounts. 
+The main rational behind modifying the original BB gun is to reduce the mass, size, and moment of inertia to allow up to actuate our launcher with ease. A larger, weirdly shaped, launcher would have required much more expensive motors and a more rigid design for the launcher mounts. 
 
-### Launcher's Moment of Interia
-Getting the moment of interia for the launcher plays a key role in the design and motor selection.
+### Launcher's Moment of Inertia
+Calculating the moment of inertia for the launcher plays a key role in the design and motor selection.
 
-The below figure shows our CAD model of the launcher with it's mechanical parameters. The marker/arrows indicate the mounting location for the launcher.
+The below figure shows our CAD model of the launcher with its mechanical parameters. The marker/arrows indicate the mounting location for the launcher.
 
-The launcher's model was built by weighting its various components and recreating the rough or exact shapes of its components. The result parameter should be considered as a lower bound. We recommend using a factor of safety of 1.5 at least in any calculations that include this parameters.
+The launcher's model was built by weighting its various components and recreating the rough or exact shapes of its components. The result parameter should be considered as a lower bound. We recommend using a factor of safety of 1.5 at least in any calculations that include these parameters.
 
-[Launcher Model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
+[Onshape link for the launcher model](https://cad.onshape.com/documents/76652a767c23fe435988178b/w/9803612b38e4d7d0dd289d8c/e/d43adc66a7cc15ee7d39c4dd?renderMode=0&uiState=67d88cabb3e65b43110218b9)
 
-![launcher and Moment of Interia](./pictures/moe1.png "launcher and Moment of Interia")
+![launcher and Moment of Inertia](./pictures/moe1.png "launcher and Moment of Inertia")
 
 ### Motor Selection
-To select motors we ran simulations of motion profiles using both the intertia of our launcher and the rotos intertia of some promessing motors. 
-We simulate both a triangular motion profile, which assumes instant change from acceleration to de-acceleration, and a trapaziodal motion profile, which assumes equal time in acceleration, operation in max acceleration, and deacceleration. 
+To select motors we ran simulations of motion profiles using both the inertia of our launcher and the rotor inertia of some promising motors. 
+We simulate both a triangular motion profile, which assumes instant change from acceleration to de-acceleration, and a trapezoidal motion profile, which assumes equal time in acceleration, operation in max acceleration, and deceleration. 
 
-While both are not perfect and can be improved, by giving assuming less time in max acceleration for example, they give us a good idea of the torque and velocities we will need to operate in to actuate our launcher. 
+<!-- While both are not perfect and can be improved, by giving assuming less time in max acceleration for example, they give us a good idea of the torque and velocities we will need to operate in to actuate our launcher.  -->
 
 The model takes the following parameters:
 ```python
@@ -126,26 +136,29 @@ time_window
 safety_factor
 ```
 
-We recommend being conservative with the safety factor to account for imperfections in tuning, intertia calculations, and motion profile control.\
-An example of such trianguler motion profile can be seen below. 
+We recommend being conservative with the safety factor to account for imperfections in tuning, inertia calculations, and motion profile control.
+An example of such triangular motion profile can be seen below. 
+
 ![Motion profile Example](./pictures/mpe.png "Motion profile Example")
 
 _Note_:\
-Something we learned in the hard way is that the rotor intertia should match the intertia of the load it drives. This mostly affects tuning the motor. In the case it does not match, you might want to gear the motor. This is not ideal as it will cause a lost in resolution of the encoder, but will provide better tuining. 
+Something we learned in the hard way is that the rotor inertia should match the inertia of the load it drives. This mostly affects tuning the motor. In the case it does not match, you might want to gear the motor. This is not ideal as it will cause a loss in resolution of the encoder, but will provide better tuning. 
 
 _Our problem_:\
-Specificly with the motors we are using we found out that our altitude motor (SDK controlled) does not allow to limit the velocity for tuning. This causes the motor to torque saturate and to produce sub-optimal tuning. To mitigate this we created a program in our software to map the time it take to move to an angle with a certain velocity command. Creating a map of (velocity, angle) to (time taken). We than used/can use this to find the best (velocity, angle) command to use to minimize the time it takes to go to a location. 
+Specifically with the motors we are using we found out that our altitude motor (SDK controlled) does not allow to limit the velocity for tuning. This causes the motor to saturate in torque and to produce sub-optimal tuning. To mitigate this, we created a program in our software to map the time it take to move to an angle with a certain velocity limit. Creating a map of `(velocity, angle)` to `(time taken)`. We can use this to find the optimal maximum velocity to use to minimize the time it takes to go to any given angle. 
 
 These profiles can be ran for any internal parameters you can change in the motor. We only found that you can change the Jerk and the "Fine-tuning" (how stiff/quite the motor moves) in our altitude (SDK controlled) motor. 
 
-Such mothion profiles with different jerks settings are shown below (the graphing script can be found under [./motors/Altitude Time Motion Profile Visualization.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/motors/Altitude%20Time%20Motion%20Profile%20Visualization.ipynb)). 
+Such motion profiles with different jerk control settings are shown below (the graphing script can be found at [./motors/Altitude Time Motion Profile Visualization.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/motors/Altitude%20Time%20Motion%20Profile%20Visualization.ipynb)). 
 
 ![Altitude Motion Profiles](./pictures/amp.png "Altitude Motion Profiles")
-[Mean time and std at velocity of 20rpm]
-### Motor Tuning
-Both motors need to to be tuned with ClearPath (azimuth) and ClearView (altitude). The tuning we are using can be found under the [./motors](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/motors)folder with the timestamp and description.
 
-_Important Last Minute Note:_ We found out that the calibration files are readable! That means that you can tune the motor by changing their parameters. A sub-project for this will be to make your own tuning program that will limit the velocity of the altitude motor and tune it well (though this is more teknic's job).
+From this analysis, we determined that using no jerk control and a velocity limit of 20 RPM produces the optimal jerk and latency over our range of possible altitude angles.
+
+### Motor Tuning
+Both motors need to to be tuned with ClearPath (azimuth) and ClearView (altitude). The tuning we are using can be found under the [./motors](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/motors) folder with the timestamp and description.
+
+_Important Last Minute Note:_ We found out that the calibration files are readable! That means that you can tune the motor by changing their parameters. A sub-project for this will be to make your own tuning program that will limit the velocity of the altitude motor and tune it well (though this is more Teknic's job).
 ### Components
 
 | Description | Part Number  | Amount | Link|
@@ -167,18 +180,18 @@ _Click to open OnShape CAD model_
 
 
 ## Firmware
-The full firmware project can be found under the firmware folder.\
-Our firmware runs on an Arduino Uno. 
+The full firmware project can be found in the `firmware` folder. Our firmware runs on an Arduino Uno with the following pins connected. 
+
 ![Firmware's Parameters](./pictures/firmware_signals.png "Firmware's Parameters")
 
-### Firmware's Parameters
+### Firmware Parameters
 **_Solenoid Pulse Width:_**\
 Location: firmware\
 Variable: TRIGGERING_DELAY\
 Scale: Miliseconds\
 Current Settings: 75\
 Considerations: 
-- Time needs to be enough to allow for the solenoid to provide optimal force to release the valve that open the magazine and releases air. 
+- Time needs to be enough to allow for the solenoid to provide enough force to release the valve that open the magazine and releases air. 
 - Time cannot be to long as it will cause the valve to be open for longer and release too much air. 
 
 **_Step Signal Pulse Width:_**\
@@ -304,7 +317,7 @@ You can find a full simulation for this calibration that was done prior to imple
 - [Eigen C++](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 
 ### Programs
-### Motor Control
+#### Motor Control
 ![Motor Control gui](./pictures/guimc.png "Motor Control gui")
 
 #### Chessboard Calibration
