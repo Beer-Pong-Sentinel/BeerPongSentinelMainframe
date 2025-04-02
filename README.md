@@ -315,8 +315,17 @@ You can find a full simulation for this calibration that was done prior to imple
 
 #### Altitude Motion Profile
 
-#### Color Thresholding
-![Color Thresholding](./pictures/guithres.png "Color Thresholding")
+#### Ball Detection
+![Ball Detection](./pictures/guithres.png "Ball Detection")
+In order to intercept the ball at some point along its trajectory, we need to triangulate its position across 3D space both quickly and accurately. However, to triangulate the position of the ball, we need to determine the pixel coordinates of the center of the ball for each image from our two cameras. Thus, we need a robust image processing pipeline that can efficiently and consistently retrieve the centroid of a ball from an image.
+
+We constructed the Ball Detection pipeline to accomplish this task. The processing pipeline is as follows:
+
+1. First, apply an HSV threshold to the image, which highlights only objects within a certain hue, saturation, and value range. 
+2. Next, apply a MOG2 background subtraction to identify any moving objects in the image. 
+3. Combine these two outputs in order to retreive only moving objects which match the specified colours defined by the HSV range. 
+4. Once combined, apply a dilation and erosion process to remove any noise. The final image should contain only highlighted pixels that match the position of the ball.
+5. Lastly, find the centroid of the highlighted pixels for both camera's and pass these values to the triangulation function to determine the position of the ball in 3D space.
 
 #### YOLO Detection
 ![Lookup Table Construction](./pictures/gui.png "Lookup Table Construction")
