@@ -138,7 +138,7 @@ Specificly with the motors we are using we found out that our altitude motor (SD
 
 These profiles can be ran for any internal parameters you can change in the motor. We only found that you can change the Jerk and the "Fine-tuning" (how stiff/quite the motor moves) in our altitude (SDK controlled) motor. 
 
-Such mothion profiles with different jerks settings are shown below (the graphing script can be found under ./motor selection/Altitude Time Motion Profile Visualization.ipynb). 
+Such mothion profiles with different jerks settings are shown below (the graphing script can be found under ./motors/Altitude Time Motion Profile Visualization.ipynb). 
 
 ![Altitude Motion Profiles](./pictures/amp.png "Altitude Motion Profiles")
 [Mean time and std at velocity of 20rpm]
