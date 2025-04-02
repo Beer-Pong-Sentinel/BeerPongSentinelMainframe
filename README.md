@@ -321,6 +321,9 @@ The full work for the different methods of prediction we test can be found under
 Under the [./simulation and data analysis/data](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/data) folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
 We used real data we captured from our full camera setup in order to compare the predicted trajectory to a real life trajectory. 
 
+
+### Gravity Calibration
+To be able to predict accurately, we cannot just assume where gravity points to. We cannot just say that gravity is pointing down. To produce a gravity vector (in our camera coordiantes), we simply take a few videos with our camera system, of us letting go off a ball. We then process this data to find the gravity vector, and to estimate the value that we are observing for gravity. This provides much more accurate results than just assuming gravity is 9.8m/s
 ## Our System In Real Life
 
 ### Lacunher - Beerie
