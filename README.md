@@ -1,6 +1,14 @@
 # Beer Pong Sentinel Project
 This page contains a detailed description of the Beer Pong Sentinel project for the Engineering Physics capstone course at UBC.
 
+## Our Team
+
+| ![](pictures/harry.png/?) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
+|:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
+| **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
+| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
+
+
 ## Background
 The inspiration for this project came from an innocent university game - beer pong.
 We thought, “it would be pretty cool to build a robot that could intercept all of our opponent's shots”! 
@@ -392,10 +400,3 @@ Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates
 
 ### Aiming/Look up table calcibration
 ![Aiming Ball Perspective](./pictures/ad.png "Aiming Ball Perspective")
-
-## Our Team
-
-| ![](pictures/harry.png/?) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
-|:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
-| **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
-| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
