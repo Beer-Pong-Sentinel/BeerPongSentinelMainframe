@@ -1,6 +1,14 @@
 # Beer Pong Sentinel Project
 This page contains a detailed description of the Beer Pong Sentinel project for the Engineering Physics capstone course at UBC.
 
+## Our Team
+
+| ![](pictures/harry.png/?) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
+|:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
+| **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
+| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
+
+
 ## Background
 The inspiration for this project came from an innocent university game - beer pong.
 We thought, “it would be pretty cool to build a robot that could intercept all of our opponent's shots”! 
@@ -255,6 +263,7 @@ This provides the full details of all the intrinsic parameters of the [BFS-U3-04
 ![Camera's Distortion](./pictures/cd.png "Camera's Distortion")
 We use stereo calibration to to correct for lens distortions and determine the precise relative placement of two cameras. We use a printed chessboard pattern of known dimensions and take images at various positions and orientations. By analyzing these images, the calibration algorithm uses the known geometry of the chessboard to first estimate and correct each camera’s intrinsic parameters, “undistorting” the images. It then compares corresponding points in both camera views to determine the cameras’ relative positions and orientations. These calibration results, which include both the intrinsic corrections and the extrinsic parameters describing how the cameras are arranged, can be combined into a projection matrix that enables the reconstruction of a 3D point using an image from each camera.
 
+You can find some calibration data under [./clibration data](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/clibration data) . As long as the orientation of the two cameras with respect to each other does not change you might not need to re-calibrate. Note that under most new environments it is recommended to recalibrate.
 ### Color Detection
 Initially we tried to detect a static target (tennis ball) using conventional methods such as HSV/RGB thresholding. 
 This turned out to be more challenging than we thought, as the camera resolution is only 720x540.
@@ -390,10 +399,3 @@ Our 80cm x 60cm calibration chessboard is sandwiched between two acrylic plates,
 
 ### Aiming/Look up table calibration
 ![Aiming Ball Perspective](./pictures/ad.png "Aiming Ball Perspective")
-
-## Our Team
-
-| ![](pictures/harry.png/?) | ![](pictures/eldad.png) | ![](pictures/polina.png) | ![](pictures/brian.png) |
-|:-----------------------:|:------------------------:|:-------------------------:|:------------------------:|
-| **Harry Hu**           | **Eldad Zipori**         | **Polina Shopina**        | **Brian Yan**            |
-| [LinkedIn](https://www.linkedin.com/in/harrytyhu/) | [LinkedIn](https://www.linkedin.com/in/eldad-zipori-a411a5157/) | [LinkedIn](https://www.linkedin.com/in/polina-shopina/) | [LinkedIn](https://www.linkedin.com/in/brian-yan/) |
