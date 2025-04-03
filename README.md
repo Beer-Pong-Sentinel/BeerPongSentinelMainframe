@@ -327,8 +327,9 @@ From this point onwards, we also wanted to utilize a dedicated GPU to do our ima
 You can find a full simulation for this calibration that was done prior to implementing it under [./simulations and data analysis/Laser_Cal_Sim.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/simulations%20and%20data%20analysis/Laser_Cal_Sim.ipynb) to see how we came up with this idea for calibration, including some estimations for the error it might have.
 ### Background Subtraction (Do we need this section?)
 
-## Software
+## Software - System Control and GUI
 We developed a GUI using Qt in C++ to facilitate subsystem and integration testing.
+The full project for the software can be found under [./system control gui](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/system control gui).
 ### Dependencies 
 - Qt 6.8.0 or 6.8.3 (we used [Qt Creator](https://www.qt.io/product/development-tools))
 - [Spinnaker SDK](https://www.teledynevisionsolutions.com/products/spinnaker-sdk/)

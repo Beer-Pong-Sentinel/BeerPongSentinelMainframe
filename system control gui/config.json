@@ -1,0 +1,43 @@
+{
+  "acquisition": {
+    "AcquisitionMode": "Continuous",
+    "ExposureAuto": "Off",
+    "ExposureTime": 10000.0,
+    "GainAuto": "Off",
+    "Gain": 5.0
+  },
+  "image_format": {
+    "PixelFormat": "BGR8"
+  },
+  "primary_camera": {
+    "DeviceID": "24292752",
+    "LineSelector": "Line1",
+    "LineMode": "Output",
+    "V3_3Enable": true,
+    "CameraNumber": 1
+
+  },
+  "secondary_camera": {
+    "DeviceID": "24292737",
+    "TriggerSource": "Line3",
+    "TriggerOverlap": "ReadOut",
+    "TriggerMode": "On",
+    "CameraNumber": 2
+  },
+  "chunk_data": {
+    "ChunkModeActive": true,
+    "ChunkSelector": "Timestamp",
+    "ChunkEnable": true
+  },
+  "motor_params": {
+    "minAzAngle": -25.0,
+    "maxAzAngle": 25.0,
+    "minAlAngle": 0.0,
+    "maxAlAngle": 25.0,
+    "minAlRPMLimit": 1.0,
+    "maxAlRPMLimit": 20.0
+  },
+  "yolo_params": {
+    "confidence": 0.55
+  }
+}
