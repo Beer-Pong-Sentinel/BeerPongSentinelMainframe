@@ -257,13 +257,23 @@ We use stereo calibration to to correct for lens distortions and determine the p
 
 ### Color Detection
 Initially we tried to detect a static target (tennis ball) using conventional methods such as HSV/RGB thresholding. 
-This turned out to be more challenging than we thought, as the camera resolution is only 720x540px.
+This turned out to be more challenging than we thought, as the camera resolution is only 720x540.
 
 While colors seem green, or red, to us, it is very clear in processing that a tennis ball contains a lot of non-green content. 
 To fix this we tried a few things:
 - Putting a black curtain in the background to more easily see the green tennis ball
 - Increasing the saturation on the cameras making most of the view look red, but making green more clear to distinguish
 - We used clear, consistent lighting that does not flicker and turned off all the other light sources in the room.
+
+In order to intercept the ball at some point along its trajectory, we need to triangulate its position across 3D space both quickly and accurately. However, to triangulate the position of the ball, we need to determine the pixel coordinates of the center of the ball for each image from our two cameras. Thus, we need a robust image processing pipeline that can efficiently and consistently retrieve the centroid of a ball from an image.
+
+We constructed the Ball Detection pipeline to accomplish this task which works as follows:
+
+1. First, apply an HSV threshold to the image, which highlights only objects within a certain hue, saturation, and value range. 
+2. Next, apply a MOG2 background subtraction to identify any moving objects in the image. 
+3. Combine these two outputs in order to retrieve only moving objects which match the specified colors defined by the HSV range. 
+4. Once combined, apply a dilation and erosion process to remove any noise. The final image should contain only highlighted pixels that match the position of the ball.
+5. Lastly, find the centroid of the highlighted pixels for both camera's and pass these values to the triangulation function to determine the position of the ball in 3D space.
 
 To read more about HSV and RGB thresholding, see [OpenCV's official documentation](https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html).
 
@@ -306,7 +316,7 @@ From this point onwards, we also wanted to utilize a dedicated GPU to do our ima
 ![Cameras Launcher Calibration Result](./pictures/clcr.png "Cameras Launcher Calibration Result")
 
 You can find a full simulation for this calibration that was done prior to implementing it under [./simulations and data analysis/Laser_Cal_Sim.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/simulations%20and%20data%20analysis/Laser_Cal_Sim.ipynb) to see how we came up with this idea for calibration, including some estimations for the error it might have.
-### Background Subtraction
+### Background Subtraction (Do we need this section?)
 
 ## Software
 We developed a GUI using Qt in C++ to facilitate subsystem and integration testing.
@@ -337,44 +347,32 @@ This tab is used to generate a lookup table for camera-motor calibration. To do 
 3. Place a surface some some distance away from the launcher.
 4. Insert a laser pointer collinear to the barrel.
 5. Set the upper and lower azimuth and altitude angles such that the laser points to the edge of the surface at those angles.
-6. With "Far Sweep" selected, press "Sweep", wait for the sweep to conclude, and check "Far Sweep Done"
+6. With "Far Sweep" selected, press "Sweep", wait for the sweep to conclude, and check "Far Sweep Done".
 7. Move the surface closer to the launcher, and repeat the process for the near sweep.
 8. Press "Calculate Lookup" to generate the lookup table.
 
 If the position of two cameras relative to each other and the launcher hasn't changed since the last calibration, the calibration can be loaded from a saved file.
 
-#### Altitude Motion Profile
-
-#### Ball Detection
+#### Ball Detection (TODO)
 ![Ball Detection](./pictures/guithres.png "Ball Detection")
-In order to intercept the ball at some point along its trajectory, we need to triangulate its position across 3D space both quickly and accurately. However, to triangulate the position of the ball, we need to determine the pixel coordinates of the center of the ball for each image from our two cameras. Thus, we need a robust image processing pipeline that can efficiently and consistently retrieve the centroid of a ball from an image.
 
-We constructed the Ball Detection pipeline to accomplish this task which works as follows:
-
-1. First, apply an HSV threshold to the image, which highlights only objects within a certain hue, saturation, and value range. 
-2. Next, apply a MOG2 background subtraction to identify any moving objects in the image. 
-3. Combine these two outputs in order to retreive only moving objects which match the specified colours defined by the HSV range. 
-4. Once combined, apply a dilation and erosion process to remove any noise. The final image should contain only highlighted pixels that match the position of the ball.
-5. Lastly, find the centroid of the highlighted pixels for both camera's and pass these values to the triangulation function to determine the position of the ball in 3D space.
-
-#### YOLO Detection
-![YOLO gui](./pictures/guiyolo.png "YOLO gui")
 
 ## Prediction
-![Predication Example](./pictures/prediction1.png "Prediction Example")
-Prediction is one of the central tasks of our project. We know our trajectory is going to be parabolic, which allows us to use classical physics to create a prediction for the tranjectory of the ball.\
+![Prediction Example](./pictures/prediction1.png "Prediction Example")
+Prediction is one of the central tasks of our project. We know our trajectory is going to be approximately parabolic, which allows us to use classical physics to create a prediction for the trajectory of the ball.
+
 The full work for the different methods of prediction we test can be found under [./simulation and data analysis/PredictionSimulation.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/PredictionSimulation.ipynb)
-Under the [./simulation and data analysis/data](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/data) folder you can find data that we used for our trajectory simulation. This data can be extract from our GUI.
+Under the [./simulation and data analysis/data](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/data) folder you can find data that we used for our trajectory simulation. This data can be extracted from our GUI.
 We used real data we captured from our full camera setup in order to compare the predicted trajectory to a real life trajectory. 
 
 
 ### Gravity Calibration
-To be able to predict accurately, we cannot just assume where gravity points to. We cannot just say that gravity is pointing down. To produce a gravity vector (in our camera coordiantes), we simply take a few videos with our camera system, of us letting go off a ball. We then process this data to find the gravity vector, and to estimate the value that we are observing for gravity. This provides much more accurate results than just assuming gravity is 9.8m/s
+To be able to predict accurately, we cannot just assume that gravity points down in our camera coordinates. To produce a gravity vector, we simply take a few videos with our camera system of us letting go off a ball. We then process this data to find the gravity vector, and to estimate the value that we are observing for gravity. This provides much more accurate results than just assuming gravity is 9.8 m/s.
 
-The code we use to estimate the gravity vector can be found under [./simulations and data analysis/GravityEstimation.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/GravityEstimation.ipynb)
+The code we use to estimate the gravity vector can be found under [./simulations and data analysis/GravityEstimation.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/tree/main/simulations%20and%20data%20analysis/GravityEstimation.ipynb).
 ## Our System In Real Life
 
-### Lacunher - Beerie
+### Launcher - Beerie
 ![Beerie](./pictures/lirl.png "Beerie")
 
 ### Integration Box
@@ -383,14 +381,14 @@ Labels and markers, with detailed diagrams, make setting up quick and simple.
 ![IRL Integration Box](./pictures/ibirl.jpg "IRL Integration Box")
 
 ### Cameras Setup
-Our cameras are situated high with each 22.5 degree angle offset from their mounting point. This is done to capture a large range of view.
+Our cameras are situated high with each 22.5 degree angle offset from their mounting point. This is done to capture a large range of view. We use high-power halogen lights to make sure the target is well lit at all times. These lights do not flicker which helps with background subtraction.
 ![Cameras Setup](./pictures/cs.png "Cameras Setup")
 
 ### Calibration Chessboard
-Our 80cm x 60cm calibration chessboard is sandwidched between two acrylic plates, making it as flat as possible. 
+Our 80cm x 60cm calibration chessboard is sandwiched between two acrylic plates, making it as flat as possible. 
 ![IRL Chessboard](./pictures/cbirl.jpg "IRL Chessboard")
 
-### Aiming/Look up table calcibration
+### Aiming/Look up table calibration
 ![Aiming Ball Perspective](./pictures/ad.png "Aiming Ball Perspective")
 
 ## Our Team
