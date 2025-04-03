@@ -191,8 +191,8 @@ Variable: TRIGGERING_DELAY\
 Scale: Miliseconds\
 Current Settings: 75\
 Considerations: 
-- Time needs to be enough to allow for the solenoid to provide enough force to release the valve that open the magazine and releases air. 
-- Time cannot be to long as it will cause the valve to be open for longer and release too much air. 
+- Time needs to be enough to allow for the solenoid to provide enough force to open the CO2 valve.
+- Time should be too long as it wastes CO2.
 
 **_Step Signal Pulse Width:_**\
 Location: firmware\
@@ -203,7 +203,7 @@ Considerations:
 - Minimum specification of motor control must be met
 - Rise/fall time affect on the pulse
 - Motor minimum control voltage is 5V
-- Affect on motion profile; how steps in certain frequencies translate to different velocities
+- Effect on motion profile; how steps in certain frequencies translate to different velocities
 
 _Note:_ Currently this sets both the pulse width and the frequency of pulses as the high time and low time are symmetric. This can be changed.
 
@@ -244,7 +244,7 @@ Considerations:
 ## Camera system
 
 ### Camera's Parameters
-The full camera parameters can be found under /simulations and data analysis/Camera Calculations.xlsx
+The full camera parameters can be found under `/simulations` and `data analysis/Camera Calculations.xlsx`.
 This provides the full details of all the intrinsic parameters of the [BFS-U3-04S2C-C]((https://www.teledynevisionsolutions.com/products/blackfly-s-usb3/?model=BFS-U3-04S2C-C&vertical=machine%20vision&segment=iis)) cameras we are using, inluding some that require calculations. 
 
 ![Camera's Parameters Table](./pictures/camparam.png "Camera's Parameters Table")
@@ -253,44 +253,45 @@ This provides the full details of all the intrinsic parameters of the [BFS-U3-04
 ![Chessboard Setup](./pictures/eic.png "Chessboard Setup")
 
 ![Camera's Distortion](./pictures/cd.png "Camera's Distortion")
-We use stereo calibration to to correct for lens distortions and determine the precise relative placement of two cameras. We use a printed chessboard pattern of known dimensions, by taking images at various positions and orientations. By analyzing these images, the calibration algorithm uses the known geometry of the chessboard to first estimate and correct each camera’s intrinsic parameters—thus “undistorting” the images. It then compares corresponding points in both camera views to determine the cameras’ relative positions and orientations. These calibration results, which include both the intrinsic corrections and the extrinsic parameters describing how the cameras are arranged, can be combined into a projection matrix that enables the reconstruction of a 3D point in world space from the two camera images.
+We use stereo calibration to to correct for lens distortions and determine the precise relative placement of two cameras. We use a printed chessboard pattern of known dimensions and take images at various positions and orientations. By analyzing these images, the calibration algorithm uses the known geometry of the chessboard to first estimate and correct each camera’s intrinsic parameters, “undistorting” the images. It then compares corresponding points in both camera views to determine the cameras’ relative positions and orientations. These calibration results, which include both the intrinsic corrections and the extrinsic parameters describing how the cameras are arranged, can be combined into a projection matrix that enables the reconstruction of a 3D point using an image from each camera.
 
 ### Color Detection
 Initially we tried to detect a static target (tennis ball) using conventional methods such as HSV/RGB thresholding. 
-This turned out to be more challenging than we tought, as the camera resultion is only 720x540px.\
-While colors seem green, or red, to us, it is very clear in processing that even a tennis ball contains a lot of non green content. 
+This turned out to be more challenging than we thought, as the camera resolution is only 720x540px.
+
+While colors seem green, or red, to us, it is very clear in processing that a tennis ball contains a lot of non-green content. 
 To fix this we tried a few things:
 - Putting a black curtain in the background to more easily see the green tennis ball
-- Increaing the saturation on the cameras making most of the view look red, but making green more clear to distinguish
-- We pointed clear, consistants lights, that do not flicker, and turned off all the other light sources in the room.
+- Increasing the saturation on the cameras making most of the view look red, but making green more clear to distinguish
+- We used clear, consistent lighting that does not flicker and turned off all the other light sources in the room.
 
-To read more about HSV and RGB thresholding see [OpenCV's official documentation](https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html).
+To read more about HSV and RGB thresholding, see [OpenCV's official documentation](https://docs.opencv.org/3.4/da/d97/tutorial_threshold_inRange.html).
 
 ### Yolo-OpenCV Object Detection 
-Evantually we decided to implement a simple DNN for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher calibration, and to be able to give an estimation of its error.
+Eventually, we decided to use a deep neural network (DNN) for static ball detection. While our final goal is prediction of a moving target, we require this to be able to demo our camera-launcher calibration, and to be able to give an estimation of its error.
 
-YOLO is an open source model for object detection. It is extermly easy to use and has very impressive performace.\
-We are using *YOLOv8*, for compatability and reliability.
+YOLO is an open source model for object detection. It is extremely easy to use and has very impressive performance. We are using *YOLOv8*, for compatibility and reliability.
 
-Read more about [YOLO in the offical site](https://docs.ultralytics.com/).
+Read more about [YOLO in the official site](https://docs.ultralytics.com/).
 
-To train our YOLO model we simply found a dataset that looked promising to us on [RobotFlow](https://universe.roboflow.com/), that worked well when we tested it online.
-We found a dataset with 4725 annotated images of tennis balls. The important part for this is that high precision, and the images were not only in a tennis court (which would probably not be so good for detecting a tennis ball in a general environment).\
-[Our Dataset](https://universe.roboflow.com/alexa-wpmns/tennis-ball-obj-det/dataset/8)
+To train our YOLO model we simply found [a dataset](https://universe.roboflow.com/alexa-wpmns/tennis-ball-obj-det/dataset/8) that looked promising to us and worked well when we tested it online.
+We found a dataset with 4725 annotated images of tennis balls. 
 
-Training the model itself is very simple and can be done using a CLI. Note that we are not using YOLO in python, so we are going to feed the weights of the model to the OpenCV DNN (C++ does not have a YOLO model). This is done by converting the trained model to ONNX format.\
-[How to train a YOLO model](https://docs.ultralytics.com/modes/train/#usage-examples).\
+<!-- The important part for this is that high precision, and the images were not only in a tennis court (which would probably not be so good for detecting a tennis ball in a general environment). -->
+
+Training the model itself is straightforward and was done using a CLI.After training, we converted the trained model to ONNX format and loaded it into OpenCV’s DNN module, as C++ does not have a native YOLO library.\
+[How to train a YOLO model](https://docs.ultralytics.com/modes/train/#usage-examples)\
 [Read more about OpenCV DNN](https://docs.opencv.org/4.x/d2/d58/tutorial_table_of_content_dnn.html)
 
-From this point onwards we also wanted to utilize a dedicated GPU to do our image processing as fast as possible. For this we had to build OpenCV with Cuda nodes for DNN.\
-[You can find how to buld OpenCV and Cuda here](https://medium.com/@amosstaileyyoung/build-opencv-with-dnn-and-cuda-for-gpu-accelerated-face-detection-27a3cdc7e9ce)
+From this point onwards, we also wanted to utilize a dedicated GPU to do our image processing as fast as possible. For this we had to build OpenCV with CUDA nodes for DNN.\
+[You can find how to build OpenCV and CUDA here](https://medium.com/@amosstaileyyoung/build-opencv-with-dnn-and-cuda-for-gpu-accelerated-face-detection-27a3cdc7e9ce)
 
 
 
-### Cameras-Launcher calibration
+### Cameras-Launcher calibration (will be updated by Harry after writing this section for the report)
 ![Cameras Launcher Calibration](./pictures/clc.gif "Cameras Launcher Calibration")
 
-*The algorithem*
+*The algorithm*
 - Launcher only moves to discrete encoder pairs [altitude, azimuth]
 
 - Move launcher to a set of encoder pairs
@@ -308,7 +309,7 @@ You can find a full simulation for this calibration that was done prior to imple
 ### Background Subtraction
 
 ## Software
-
+We developed a GUI using Qt in C++ to facilitate subsystem and integration testing.
 ### Dependencies 
 - Qt 6.8.0 or 6.8.3 (we used [Qt Creator](https://www.qt.io/product/development-tools))
 - [Spinnaker SDK](https://www.teledynevisionsolutions.com/products/spinnaker-sdk/)
@@ -319,12 +320,28 @@ You can find a full simulation for this calibration that was done prior to imple
 ### Programs
 #### Motor Control
 ![Motor Control gui](./pictures/guimc.png "Motor Control gui")
+This section provides a simple interface for enabling, moving, and disabling the azimuth and altitude motors. This allows to user to make sure both motors are properly connected. 
+
+"Test Move Time" runs a script that iterates the altitude motor through a range of angles, repeating for a range of maximum velocities. The `(angle, velocity limit, time)` values are recorded in `altitude_time_test_dat.csv` within the Qt build folder.
+
 
 #### Chessboard Calibration
 ![Chessboard Calibration](./pictures/gui2.png "Chessboard Calibration")
+This tab lets the user capture images to use for stereo calibration. We recommend taking 20-30 images where each corner of the chessboard is visible in both cameras. It is important that the camera feed on the left always corresponds to the camera physically on the left. If the cameras have not been moved relative to one another since another stereo calibration, the calibration can be loaded from a saved file.
 
 #### Lookup Table Construction (Camera-Motor Calibration)
 ![Lookup Table Construction](./pictures/gui3.png "Lookup Table Construction")
+This tab is used to generate a lookup table for camera-motor calibration. To do this, 
+1. Select the correct ports for the azimuth and altitude motors.
+2. Enable the motors and ensure that they can be moved.
+3. Place a surface some some distance away from the launcher.
+4. Insert a laser pointer collinear to the barrel.
+5. Set the upper and lower azimuth and altitude angles such that the laser points to the edge of the surface at those angles.
+6. With "Far Sweep" selected, press "Sweep", wait for the sweep to conclude, and check "Far Sweep Done"
+7. Move the surface closer to the launcher, and repeat the process for the near sweep.
+8. Press "Calculate Lookup" to generate the lookup table.
+
+If the position of two cameras relative to each other and the launcher hasn't changed since the last calibration, the calibration can be loaded from a saved file.
 
 #### Altitude Motion Profile
 
