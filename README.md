@@ -307,25 +307,32 @@ From this point onwards, we also wanted to utilize a dedicated GPU to do our ima
 
 
 
-### Cameras-Launcher calibration (will be updated by Harry after writing this section for the report)
-![Cameras Launcher Calibration](./pictures/clc.gif "Cameras Launcher Calibration")
+### Cameras-Launcher calibration
 
-*The algorithm*
-- Launcher only moves to discrete encoder pairs [altitude, azimuth]
 
-- Move launcher to a set of encoder pairs
 
-- Record camera coordinates on a plane a distance r1 away 
+To convert from a predicted point in 3D space to motor positions for interception, we require launcher-camera calibration. We accomplished this using a look-up table, which is created as follows. After placing a large surface in front of the launcher and attaching a laser pointer collinear with the barrel, we can move to a number of motor positions and record the 3D location of the laser dot on the surface. After repeating the process with the same motor positions and a surface further away from the launcher, we can connect the dots to obtain a vector and origin for each motor position. Because this becomes a lengthy process when collecting data for a fine grid, we can instead interpolate to approximate the vectors and origins we would see if we collected more data.
 
-- Repeat for distance r2
-
-- Interpolate the rest of the points
+The process of converting from 3D coordinates to motor positions then becomes simple: we compute the distance between the desired 3D coordinate and each vector in the interpolated dataset. Then, we can simply read off the motor positions for the shortest distance. 
 
 
 ![Cameras Launcher Calibration Result](./pictures/clcr.png "Cameras Launcher Calibration Result")
 
+
+Ideally, the surfaces are placed such that the expected position of interception lies between them and that the angles swept over encompass all viable angles for interception. Having the surfaces further apart reduces uncertainty in the vector directions, although this means that surface size also has to increase. 
+
+
+
+![Cameras Launcher Calibration](./pictures/clc.gif "Cameras Launcher Calibration")
+
+The main advantage of this method over others is that it does not assume much from the system (such as that the launcher has spherical symmetry, the surfaces are flat, etc.), making it robust. The main disadvantage is the time required to do such a calibration, which has to be redone whenever the position of the cameras changes relative to the launcher or each other.
+
+We did not have the time to collect extensive test data for this approach but we found that collecting a 20x20 grid of data with altitude angles from 0 to 15 degrees and azimuth angles from -15 to 15 degrees, interpolated to 60x60 grid of data, we were able to measure an average error of 37 millimetres from the center of the target from initial tests.
+
+
+
 You can find a full simulation for this calibration that was done prior to implementing it under [./simulations and data analysis/Laser_Cal_Sim.ipynb](https://github.com/Beer-Pong-Sentinel/BeerPongSentinelMainframe/blob/main/simulations%20and%20data%20analysis/Laser_Cal_Sim.ipynb) to see how we came up with this idea for calibration, including some estimations for the error it might have.
-### Background Subtraction (Do we need this section?)
+
 
 ## Software - System Control and GUI
 We developed a GUI using Qt in C++ to facilitate subsystem and integration testing.
